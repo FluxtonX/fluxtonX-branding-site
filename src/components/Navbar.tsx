@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "@/assets/fluxtonx-logo.png";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
   { to: "/solutions", label: "Solutions" },
@@ -23,14 +24,13 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 bg-background/95 backdrop-blur transition-shadow ${
-        scrolled ? "shadow-[0_1px_0_0_var(--color-border)]" : "border-b border-border"
-      }`}
+      className={`fixed top-0 inset-x-0 z-50 bg-background/95 backdrop-blur transition-shadow ${scrolled ? "shadow-[0_1px_0_0_var(--color-border)]" : "border-b border-border"
+        }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <img src={logo} alt="FluxtonX" className="h-8 w-auto" />
-          <span className="text-[15px] font-bold tracking-tight text-foreground">FluxtonX</span>
+
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
@@ -48,6 +48,7 @@ export function Navbar() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
+          <ThemeToggle />
           <Link to="/contact" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
             Contact Sales
           </Link>
@@ -59,13 +60,16 @@ export function Navbar() {
           </Link>
         </div>
 
-        <button
-          onClick={() => setOpen((v) => !v)}
-          className="lg:hidden p-2 -mr-2 text-foreground"
-          aria-label="Toggle menu"
-        >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
+          <button
+            onClick={() => setOpen((v) => !v)}
+            className="p-2 -mr-2 text-foreground"
+            aria-label="Toggle menu"
+          >
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {open && (

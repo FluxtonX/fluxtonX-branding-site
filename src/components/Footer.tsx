@@ -17,7 +17,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2">
               <img src={logo} alt="FluxtonX" className="h-9 w-auto" />
-              <span className="text-lg font-bold text-white">FluxtonX</span>
+
             </Link>
             <p className="mt-4 text-sm leading-relaxed max-w-xs">
               Global digital transformation through architectural precision. We empower enterprises to lead the next era of intelligent technology.

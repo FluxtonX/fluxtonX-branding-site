@@ -50,6 +50,24 @@
   --border: #e6eaf2;
 }
 
+.dark {
+  --background: #030712;
+  --foreground: #f8fafc;
+  --card: #0f172a;
+  --card-foreground: #f8fafc;
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --primary-foreground: #ffffff;
+  --accent: #fbbf24;
+  --accent-light: #fcd34d;
+  --accent-foreground: #0f172a;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --surface: #020617;
+  --surface-2: #0f172a;
+  --border: #1e293b;
+}
+
 @layer base {
   * { border-color: var(--color-border); }
   html { scroll-behavior: smooth; }

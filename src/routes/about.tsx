@@ -7,6 +7,7 @@ import t1 from "@/assets/team-1.jpg";
 import t2 from "@/assets/team-2.jpg";
 import t3 from "@/assets/team-3.jpg";
 import t4 from "@/assets/team-4.jpg";
+import ubaid from "@/assets/team-ubaid.jpg";
 
 const timeline = [
   { year: "2004", title: "Islamabad Founding", desc: "Founded in the heart of Islamabad with a focus on core banking systems and government digital infrastructure." },
@@ -22,10 +23,22 @@ const values = [
 ];
 
 const team = [
-  { name: "Zaid Al-Hassan", role: "Chief Executive Officer", img: t1 },
-  { name: "Elena Vost", role: "Chief Technology Officer", img: t2 },
-  { name: "Marcus Thorne", role: "Head of Architecture", img: t3 },
-  { name: "Sarah Jenkins", role: "VP, Global Strategy", img: t4 },
+  { name: "Zaid Al-Hassan", role: "Chief Executive Officer", img: t1, linkedin: "https://linkedin.com" },
+  { name: "Elena Vost", role: "Chief Technology Officer", img: t2, linkedin: "https://linkedin.com" },
+  { name: "Marcus Thorne", role: "Head of Architecture", img: t3, linkedin: "https://linkedin.com" },
+  { name: "Sarah Jenkins", role: "VP, Global Strategy", img: t4, linkedin: "https://linkedin.com" },
+  { name: "Obaid Ullah", role: "Full Stack Web Developer", img: ubaid, linkedin: "https://www.linkedin.com/in/obaid-ullah-b01835266/" },
+];
+
+import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
+
+const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+
+const markers = [
+  { name: "Islamabad", coordinates: [73.0479, 33.6844] as [number, number] },
+  { name: "Dubai", coordinates: [55.2708, 25.2048] as [number, number] },
+  { name: "London", coordinates: [-0.1276, 51.5074] as [number, number] },
+  { name: "Singapore", coordinates: [103.8198, 1.3521] as [number, number] },
 ];
 
 export const Route = createFileRoute("/about")({
@@ -48,7 +61,7 @@ function AboutPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20 grid lg:grid-cols-[1.1fr_1fr] gap-10 items-center">
             <div>
               <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent">Our Heritage</p>
-              <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-primary">
+              <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-foreground">
                 Pioneering Digital Excellence Since Day One.
               </h1>
               <p className="mt-6 max-w-xl text-base text-muted-foreground leading-relaxed">
@@ -73,7 +86,7 @@ function AboutPage() {
               { t: "Our Vision", d: "To become the global gold standard for digital infrastructure consultancy, recognized for our precision, integrity, and the enduring impact of the systems we build." },
             ].map((b) => (
               <div key={b.t}>
-                <h2 className="text-2xl font-bold text-primary">{b.t}</h2>
+                <h2 className="text-2xl font-bold text-foreground">{b.t}</h2>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{b.d}</p>
               </div>
             ))}
@@ -84,7 +97,7 @@ function AboutPage() {
         <section className="bg-surface py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent">Evolution</p>
-            <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-primary">The Timeline of Impact</h2>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-foreground">The Timeline of Impact</h2>
             <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-5">
               {timeline.map((t) => (
                 <div key={t.year} className="rounded-xl bg-card border border-border p-6 shadow-card">
@@ -98,10 +111,10 @@ function AboutPage() {
         </section>
 
         {/* Values */}
-        <section className="py-20">
+        <section className="py-20 bg-background">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent">Foundations</p>
-            <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-primary">Our Core Values</h2>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-foreground">Our Core Values</h2>
             <div className="mt-10 grid sm:grid-cols-3 gap-5 text-left">
               {values.map((v) => (
                 <div key={v.title} className="rounded-xl border border-border bg-card p-7 shadow-card">
@@ -118,11 +131,21 @@ function AboutPage() {
         <section className="bg-surface py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent">Executive Team</p>
-            <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-primary">Strategic Leadership</h2>
-            <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-foreground">Strategic Leadership</h2>
+            <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
               {team.map((m) => (
-                <figure key={m.name} className="rounded-xl overflow-hidden bg-card border border-border shadow-card">
+                <figure key={m.name} className="relative rounded-xl overflow-hidden bg-card border border-border shadow-card group">
                   <img src={m.img} alt={m.name} loading="lazy" className="w-full aspect-[3/4] object-cover" />
+                  <a
+                    href={m.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute top-3 right-3 bg-white shadow-md p-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                  </a>
                   <figcaption className="p-5">
                     <div className="font-semibold text-foreground">{m.name}</div>
                     <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1">{m.role}</div>
@@ -134,11 +157,11 @@ function AboutPage() {
         </section>
 
         {/* Global Footprint + Recognition */}
-        <section className="py-20">
+        <section className="py-20 bg-background">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12">
             <div>
               <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent">Presence</p>
-              <h2 className="mt-3 text-3xl font-bold text-primary">Global Footprint</h2>
+              <h2 className="mt-3 text-3xl font-bold text-foreground">Global Footprint</h2>
               <ul className="mt-8 space-y-5">
                 {[
                   ["Islamabad, PK", "Regional Operations & R&D Center"],
@@ -153,11 +176,45 @@ function AboutPage() {
                 ))}
               </ul>
             </div>
-            <div className="rounded-xl bg-surface-2 grid place-items-center min-h-[280px] text-muted-foreground text-sm">
-              <div className="text-center">
-                <Users className="h-10 w-10 text-primary mx-auto" />
-                <p className="mt-3 font-semibold text-primary">4 Global Hubs</p>
-                <p className="text-xs">Serving 50+ countries</p>
+            <div className="rounded-xl bg-surface-2 p-6 flex flex-col items-center justify-between min-h-[320px]">
+              <div className="w-full h-full max-h-[240px]">
+                <ComposableMap projectionConfig={{ scale: 145 }}>
+                  <Geographies geography={geoUrl}>
+                    {({ geographies }) =>
+                      geographies.map((geo) => (
+                        <Geography
+                          key={geo.rsmKey}
+                          geography={geo}
+                          fill="#DBEAFE"
+                          stroke="#FFFFFF"
+                          strokeWidth={0.5}
+                          style={{
+                            default: { outline: "none" },
+                            hover: { fill: "#93C5FD", outline: "none" },
+                            pressed: { outline: "none" },
+                          }}
+                        />
+                      ))
+                    }
+                  </Geographies>
+                  {markers.map(({ name, coordinates }) => (
+                    <Marker key={name} coordinates={coordinates}>
+                      <circle r={8} fill="#1A3DBF" opacity={0.3} className="animate-ping" />
+                      <circle r={4} fill="#1A3DBF" />
+                      <text
+                        textAnchor="middle"
+                        dy={-12}
+                        style={{ fontFamily: "inherit", fill: "#1A3DBF", fontSize: 8, fontWeight: 600 }}
+                      >
+                        {name}
+                      </text>
+                    </Marker>
+                  ))}
+                </ComposableMap>
+              </div>
+              <div className="mt-4 text-center">
+                <p className="text-sm font-bold text-primary">4 Global Hubs</p>
+                <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Serving 50+ countries</p>
               </div>
             </div>
           </div>
@@ -167,7 +224,7 @@ function AboutPage() {
         <section className="bg-surface py-20 border-t border-border">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-2xl font-bold text-primary">Recognition</h2>
+              <h2 className="text-2xl font-bold text-foreground">Recognition</h2>
               <div className="mt-6 grid sm:grid-cols-2 gap-4">
                 {[
                   ["2023", "Global Cloud Excellence", "Infrastructure Innovation Award"],
