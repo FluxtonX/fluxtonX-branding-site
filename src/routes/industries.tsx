@@ -59,23 +59,23 @@ function IndustriesPage() {
             <p className="mt-2 text-sm text-muted-foreground">Strategic digital frameworks tailored for institutional excellence.</p>
 
             <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {sectors.map((s) => {
-                const Icon = iconByLabel[s.name];
-                return (
-                  <div key={s.slug} className="rounded-xl bg-card border border-border p-7 hover:border-primary/40 hover:-translate-y-0.5 transition-all shadow-card">
+                  <Link 
+                    key={s.slug} 
+                    to="/industries/$slug" 
+                    params={{ slug: s.slug }}
+                    className="group rounded-xl bg-card border border-border p-7 hover:border-primary/40 hover:-translate-y-0.5 transition-all shadow-card flex flex-col"
+                  >
                     {Icon && (
-                      <div className="h-10 w-10 rounded-md bg-primary/10 text-primary grid place-items-center">
+                      <div className="h-10 w-10 rounded-md bg-primary/10 text-primary grid place-items-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                         <Icon className="h-5 w-5" />
                       </div>
                     )}
                     <h3 className="mt-5 text-xl font-bold text-foreground">{s.name}</h3>
                     <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-                    <Link to="/industries/$slug" params={{ slug: s.slug }} className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:gap-2 transition-all">
+                    <div className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:gap-2 transition-all">
                       Learn More <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </div>
-                );
-              })}
+                    </div>
+                  </Link>
             </div>
           </div>
         </section>

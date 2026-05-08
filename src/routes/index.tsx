@@ -361,17 +361,24 @@ function WhatWeDo() {
         </div>
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s) => (
-            <div key={s.title} className="bg-card rounded-2xl p-8 border border-border shadow-sm hover:shadow-xl hover:border-primary/40 transition-all duration-300 group cursor-pointer">
+            <Link 
+              key={s.slug} 
+              to="/solutions/$slug" 
+              params={{ slug: s.slug }}
+              className="bg-card rounded-2xl p-8 border border-border shadow-sm hover:shadow-xl hover:border-primary/40 transition-all duration-300 group cursor-pointer flex flex-col"
+            >
               <div className="w-12 h-12 rounded-xl bg-primary/10 group-hover:bg-primary transition-colors duration-300 flex items-center justify-center">
                 <s.icon className="h-6 w-6 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
               </div>
               <h3 className="text-xl font-bold text-foreground mt-6 mb-3">{s.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
-              <div className="w-0 group-hover:w-12 h-0.5 bg-primary transition-all duration-500 mt-4" />
-              <div className="mt-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-semibold flex items-center gap-1">
-                Learn more <span>→</span>
+              <div className="mt-auto">
+                <div className="w-0 group-hover:w-12 h-0.5 bg-primary transition-all duration-500 mt-4" />
+                <div className="mt-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-semibold flex items-center gap-1">
+                  Learn more <span>→</span>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

@@ -91,16 +91,20 @@ function SolutionsPage() {
 
             <div className="grid sm:grid-cols-2 gap-5">
               {list.map((s) => (
-                <Link key={s.slug} to="/solutions/$slug" params={{ slug: s.slug }} className="group rounded-xl bg-card border border-border p-7 hover:border-primary/40 hover:-translate-y-0.5 transition-all shadow-card">
+                <div key={s.slug} className="group rounded-xl bg-card border border-border p-7 hover:border-primary/40 hover:-translate-y-0.5 transition-all shadow-card">
                   <div className="h-10 w-10 rounded-md bg-primary/10 text-primary grid place-items-center group-hover:bg-primary group-hover:text-primary-foreground transition">
                     <s.icon className="h-5 w-5" />
                   </div>
                   <h3 className="mt-5 text-xl font-bold text-foreground">{s.name}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-                  <span className="mt-5 inline-flex items-center gap-1 text-xs font-semibold text-primary tracking-wider uppercase">
+                  <Link 
+                    to="/solutions/$slug" 
+                    params={{ slug: s.slug }}
+                    className="mt-5 inline-flex items-center gap-1 text-xs font-semibold text-primary tracking-wider uppercase hover:gap-2 transition-all"
+                  >
                     Learn More <ArrowRight className="h-3.5 w-3.5" />
-                  </span>
-                </Link>
+                  </Link>
+                </div>
               ))}
             </div>
           </div>

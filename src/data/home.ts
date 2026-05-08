@@ -1,12 +1,12 @@
 import { Layers, Cloud, BrainCircuit, Shield, Database, Sparkles, Banknote, HeartPulse, ShoppingBag, GraduationCap, Landmark, Truck } from "lucide-react";
 
 export const services = [
-  { icon: Layers, title: "Strategy & Consulting", desc: "We craft digital strategies with precision-engineered roadmaps to accelerate enterprise transformation." },
-  { icon: Cloud, title: "Cloud Innovation", desc: "Scalable, secure, and resilient cloud architectures that power global operations without compromise." },
-  { icon: BrainCircuit, title: "Applied Intelligence", desc: "Harnessing advanced machine learning and automation to redefine operational efficiency and insight." },
-  { icon: Shield, title: "Cyber Resilience", desc: "Fortifying enterprise assets with cybersecurity frameworks designed for the modern threat landscape." },
-  { icon: Database, title: "Data Mastery", desc: "Turning raw data into strategic clarity through advanced analytics and architectural precision." },
-  { icon: Sparkles, title: "Experience Design", desc: "Crafting reflective interfaces that balance aesthetic beauty with functional excellence for global users." },
+  { slug: "digital-transformation", icon: Layers, title: "Strategy & Consulting", desc: "We craft digital strategies with precision-engineered roadmaps to accelerate enterprise transformation." },
+  { slug: "cloud-native", icon: Cloud, title: "Cloud Innovation", desc: "Scalable, secure, and resilient cloud architectures that power global operations without compromise." },
+  { slug: "applied-intelligence", icon: BrainCircuit, title: "Applied Intelligence", desc: "Harnessing advanced machine learning and automation to redefine operational efficiency and insight." },
+  { slug: "cybersecurity", icon: Shield, title: "Cyber Resilience", desc: "Fortifying enterprise assets with cybersecurity frameworks designed for the modern threat landscape." },
+  { slug: "data-mastery", icon: Database, title: "Data Mastery", desc: "Turning raw data into strategic clarity through advanced analytics and architectural precision." },
+  { slug: "experience-design", icon: Sparkles, title: "Experience Design", desc: "Crafting reflective interfaces that balance aesthetic beauty with functional excellence for global users." },
 ];
 
 export const stats = [

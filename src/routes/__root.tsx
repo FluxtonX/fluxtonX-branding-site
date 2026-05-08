@@ -9,9 +9,11 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import logoUrl from "../assets/fluxtonx-logo.png?url";
 
 function NotFoundComponent() {
   return (
+
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
@@ -84,6 +86,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/41807d71-beae-4f92-a736-5b80b85dede3/id-preview-e6a31462--60dc2ceb-24f0-4137-a7dd-d52fb8ca7d53.lovable.app-1778239690490.png" },
     ],
     links: [
+      { rel: "icon", href: logoUrl },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },

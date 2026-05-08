@@ -11,9 +11,54 @@ import manuImg from "@/assets/case-manufacturing.jpg";
 import { Cloud, Shield, Zap, Smartphone, Atom, Cpu, Server, Database, ArrowRight, CheckCircle2 } from "lucide-react";
 
 const SOLUTIONS: Record<string, { name: string; category: string; tagline: string; subhead: string }> = {
-  "app-development": { name: "App Development", category: "Digital Infrastructure", tagline: "Architecting Next-Generation Mobile & Web Experiences", subhead: "Bridging the gap between ambitious business logic and seamless user engagement through precision engineering." },
-  "cloud-native": { name: "Cloud Native", category: "Cloud Innovation", tagline: "Engineering Resilient Cloud-First Ecosystems", subhead: "Architecting elastic, multi-region cloud platforms that scale with your business velocity." },
-  "data-mastery": { name: "Data Mastery", category: "Data & Analytics", tagline: "Turning Raw Data Into Strategic Clarity", subhead: "Modern data platforms, governance, and ML-ready pipelines for the intelligent enterprise." },
+  "digital-transformation": { 
+    name: "Digital Transformation", 
+    category: "Digital Strategy", 
+    tagline: "Strategic Realignment for the Modern Enterprise", 
+    subhead: "Orchestrating seamless transitions from legacy complexity to high-velocity digital excellence." 
+  },
+  "cloud-native": { 
+    name: "Cloud Native", 
+    category: "Cloud Innovation", 
+    tagline: "Engineering Resilient Cloud-First Ecosystems", 
+    subhead: "Architecting elastic, multi-region cloud platforms that scale with your business velocity." 
+  },
+  "applied-intelligence": { 
+    name: "Applied Intelligence", 
+    category: "Applied Intelligence", 
+    tagline: "Unlocking Value Through Advanced AI & ML", 
+    subhead: "Deploying generative models and automated intelligence to redefine operational efficiency." 
+  },
+  "cybersecurity": { 
+    name: "Cybersecurity", 
+    category: "Infrastructure", 
+    tagline: "Institutional-Grade Digital Fortification", 
+    subhead: "Proactive threat detection and zero-trust protocols designed for the modern threat landscape." 
+  },
+  "data-mastery": { 
+    name: "Data Mastery", 
+    category: "Data & Analytics", 
+    tagline: "Turning Raw Data Into Strategic Clarity", 
+    subhead: "Modern data platforms, governance, and ML-ready pipelines for the intelligent enterprise." 
+  },
+  "app-development": { 
+    name: "App Development", 
+    category: "Infrastructure", 
+    tagline: "Architecting Next-Generation Mobile & Web Experiences", 
+    subhead: "Bridging the gap between ambitious business logic and seamless user engagement." 
+  },
+  "experience-design": { 
+    name: "Experience Design", 
+    category: "Digital Strategy", 
+    tagline: "Human-Centric Design with Architectural Precision", 
+    subhead: "Crafting interfaces that balance aesthetic beauty with uncompromising functional excellence." 
+  },
+  "enterprise-web": { 
+    name: "Enterprise Web", 
+    category: "Infrastructure", 
+    tagline: "High-Performance Web Architectures", 
+    subhead: "Modern web frameworks designed for massive concurrency and global content delivery." 
+  },
 };
 
 const highlights = [
