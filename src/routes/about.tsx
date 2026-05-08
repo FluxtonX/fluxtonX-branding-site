@@ -1,13 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Shield, Lightbulb, Compass, Award, Users } from "lucide-react";
+import { Shield, Lightbulb, Compass, Award, Users, ChevronLeft, ChevronRight } from "lucide-react";
+import useEmblaCarousel from "embla-carousel-react";
+import { useCallback } from "react";
 import aboutImg from "@/assets/about-hero.jpg";
 import t1 from "@/assets/team-1.jpg";
 import t2 from "@/assets/team-2.jpg";
 import t3 from "@/assets/team-3.jpg";
 import t4 from "@/assets/team-4.jpg";
 import ubaid from "@/assets/team-ubaid.jpg";
+import nasir from "@/assets/team-nasir.png";
 
 const timeline = [
   { year: "2004", title: "Islamabad Founding", desc: "Founded in the heart of Islamabad with a focus on core banking systems and government digital infrastructure." },
@@ -23,11 +26,11 @@ const values = [
 ];
 
 const team = [
-  { name: "Zaid Al-Hassan", role: "Chief Executive Officer", img: t1, linkedin: "https://linkedin.com" },
+  { name: "Muhammad Nasir", role: "CEO & Business Developer", img: nasir, linkedin: "https://www.linkedin.com/in/muhammadnasirpk44" },
+  { name: "Obaid Ullah", role: "Full Stack Web Developer", img: ubaid, linkedin: "https://www.linkedin.com/in/obaid-ullah-b01835266/" },
   { name: "Elena Vost", role: "Chief Technology Officer", img: t2, linkedin: "https://linkedin.com" },
   { name: "Marcus Thorne", role: "Head of Architecture", img: t3, linkedin: "https://linkedin.com" },
   { name: "Sarah Jenkins", role: "VP, Global Strategy", img: t4, linkedin: "https://linkedin.com" },
-  { name: "Obaid Ullah", role: "Full Stack Web Developer", img: ubaid, linkedin: "https://www.linkedin.com/in/obaid-ullah-b01835266/" },
 ];
 
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
@@ -52,6 +55,20 @@ export const Route = createFileRoute("/about")({
 });
 
 function AboutPage() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    align: "start",
+    dragFree: true,
+    containScroll: "trimSnaps"
+  });
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -127,31 +144,57 @@ function AboutPage() {
           </div>
         </section>
 
-        {/* Leadership */}
-        <section className="bg-surface py-20">
+        {/* Leadership Carousel */}
+        <section className="bg-surface py-20 overflow-hidden">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent">Executive Team</p>
-            <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-foreground">Strategic Leadership</h2>
-            <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-              {team.map((m) => (
-                <figure key={m.name} className="relative rounded-xl overflow-hidden bg-card border border-border shadow-card group">
-                  <img src={m.img} alt={m.name} loading="lazy" className="w-full aspect-[3/4] object-cover" />
-                  <a
-                    href={m.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute top-3 right-3 bg-white shadow-md p-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+            <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
+              <div>
+                <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent">Executive Team</p>
+                <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-foreground">Strategic Leadership</h2>
+              </div>
+              <div className="flex gap-2">
+                <button 
+                  onClick={scrollPrev}
+                  className="p-3 rounded-full border border-border bg-card hover:bg-accent hover:text-accent-foreground transition-all shadow-sm"
+                  aria-label="Previous slide"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button 
+                  onClick={scrollNext}
+                  className="p-3 rounded-full border border-border bg-card hover:bg-accent hover:text-accent-foreground transition-all shadow-sm"
+                  aria-label="Next slide"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </div>
+            </div>
+
+            <div className="embla" ref={emblaRef}>
+              <div className="embla__container flex gap-6">
+                {team.map((m) => (
+                  <figure 
+                    key={m.name} 
+                    className="embla__slide flex-[0_0_280px] min-w-0 relative rounded-xl overflow-hidden bg-card border border-border shadow-card group"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                  </a>
-                  <figcaption className="p-5">
-                    <div className="font-semibold text-foreground">{m.name}</div>
-                    <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1">{m.role}</div>
-                  </figcaption>
-                </figure>
-              ))}
+                    <img src={m.img} alt={m.name} loading="lazy" className="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <a
+                      href={m.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm shadow-md p-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                      </svg>
+                    </a>
+                    <figcaption className="p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent absolute bottom-0 inset-x-0">
+                      <div className="font-semibold text-white">{m.name}</div>
+                      <div className="text-[10px] uppercase tracking-wider text-white/70 mt-0.5">{m.role}</div>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
             </div>
           </div>
         </section>
