@@ -253,7 +253,3 @@ function SolutionDetail() {
   );
 }
 
-// Reuse imports without re-declaring
-import bankingImg from "@/assets/case-banking.jpg";
-import healthImg from "@/assets/case-health.jpg";
-import manuImg from "@/assets/case-manufacturing.jpg";
