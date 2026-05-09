@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "FluxtonX — Transforming Businesses Through Intelligent Technology" },
-      { name: "description", content: "FluxtonX partners with global enterprises to deliver architectural precision in digital transformation, cloud-first operations, and AI-driven acceleration." },
+      { name: "description", content: "FluxtonX is a product engineering and AI solutions company helping startups, enterprises, and fast-growing businesses build scalable digital products with speed, precision, and long-term vision." },
     ],
   }),
   component: Home,
@@ -209,7 +209,7 @@ function Hero() {
               <span className="text-accent">Technology</span>
             </h1>
             <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed">
-              FluxtonX partners with global enterprises to deliver architectural precision in digital transformation, cloud-first operations, and AI-driven acceleration.
+              FluxtonX is a product engineering and AI solutions company helping startups, enterprises, and fast-growing businesses build scalable digital products with speed, precision, and long-term vision.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/solutions" className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-dark transition shadow-[0_8px_24px_-8px_rgba(26,61,191,0.5)]">
@@ -496,7 +496,7 @@ function CaseStudy() {
 }
 
 function TechStack() {
-  const stack = ["AWS", "Azure", "GCP", "Kubernetes", "Snowflake", "Databricks", "PyTorch", "React", "Postgres", "Kafka"];
+  const stack = ["Flutter", "React & Next.js", "Node.js", "Python", "AI Integrations", "Firebase", "AWS", "MongoDB", ".NET", "Scalable Cloud Infrastructure"];
   return (
     <section className="py-28 bg-background border-y border-border relative overflow-hidden">
       {/* Background Accent */}
@@ -559,7 +559,7 @@ function WhyUs() {
         <div className="relative">
           <img src={whyImg} alt="FluxtonX leadership team" width={1024} height={768} loading="lazy" className="w-full rounded-2xl object-cover shadow-card" />
           <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground rounded-xl px-6 py-5 shadow-card hidden sm:block">
-            <div className="text-3xl font-bold">10+</div>
+            <div className="text-3xl font-bold">5+</div>
             <div className="text-[11px] uppercase tracking-wider text-white/70 mt-1">Years of Excellence</div>
           </div>
         </div>

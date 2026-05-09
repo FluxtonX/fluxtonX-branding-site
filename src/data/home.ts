@@ -1,28 +1,30 @@
-import { Layers, Cloud, BrainCircuit, Shield, Database, Sparkles, Banknote, HeartPulse, ShoppingBag, GraduationCap, Landmark, Truck } from "lucide-react";
+import { Layers, BrainCircuit, Banknote, HeartPulse, ShoppingBag, Landmark, Truck, Smartphone, Cpu, Laptop, Palette, Activity, Sparkles, Rocket } from "lucide-react";
 
 export const services = [
-  { slug: "digital-transformation", icon: Layers, title: "Strategy & Consulting", desc: "We craft digital strategies with precision-engineered roadmaps to accelerate enterprise transformation." },
-  { slug: "cloud-native", icon: Cloud, title: "Cloud Innovation", desc: "Scalable, secure, and resilient cloud architectures that power global operations without compromise." },
-  { slug: "applied-intelligence", icon: BrainCircuit, title: "Applied Intelligence", desc: "Harnessing advanced machine learning and automation to redefine operational efficiency and insight." },
-  { slug: "cybersecurity", icon: Shield, title: "Cyber Resilience", desc: "Fortifying enterprise assets with cybersecurity frameworks designed for the modern threat landscape." },
-  { slug: "data-mastery", icon: Database, title: "Data Mastery", desc: "Turning raw data into strategic clarity through advanced analytics and architectural precision." },
-  { slug: "experience-design", icon: Sparkles, title: "Experience Design", desc: "Crafting reflective interfaces that balance aesthetic beauty with functional excellence for global users." },
+  { slug: "ai-platforms", icon: BrainCircuit, title: "AI-powered platforms", desc: "Building intelligent systems that leverage machine learning and automation to solve complex business challenges." },
+  { slug: "mobile-dev", icon: Smartphone, title: "Mobile application development", desc: "Creating high-performance, cross-platform mobile apps using Flutter and modern frameworks." },
+  { slug: "saas-engineering", icon: Layers, title: "SaaS product engineering", desc: "Engineering scalable and resilient SaaS products designed for long-term growth and high user concurrency." },
+  { slug: "fintech-systems", icon: Banknote, title: "Fintech and payment systems", desc: "Developing secure and compliant financial technology solutions and seamless payment integrations." },
+  { slug: "enterprise-automation", icon: Cpu, title: "Enterprise workflow automation", desc: "Streamlining business operations through custom automation and intelligent workflow orchestration." },
+  { slug: "web-platforms", icon: Laptop, title: "Web platforms and dashboards", desc: "Designing and building robust web applications and data-driven dashboards for enterprise scale." },
+  { slug: "uiux-architecture", icon: Palette, title: "UI/UX design and scalable architectures", desc: "Combining premium user experiences with clean, maintainable, and scalable system architectures." },
 ];
 
 export const stats = [
   { value: "200+", label: "Projects Delivered" },
   { value: "50+", label: "Global Clients" },
-  { value: "10+", label: "Years of Excellence" },
+  { value: "5+", label: "Years of Excellence" },
   { value: "98%", label: "Client Satisfaction" },
 ];
 
 export const industries = [
-  { icon: Banknote, label: "Finance" },
   { icon: HeartPulse, label: "Healthcare" },
-  { icon: ShoppingBag, label: "Retail" },
-  { icon: GraduationCap, label: "Education" },
-  { icon: Landmark, label: "Government" },
+  { icon: Activity, label: "Fitness" },
   { icon: Truck, label: "Logistics" },
+  { icon: ShoppingBag, label: "E-commerce" },
+  { icon: Landmark, label: "Enterprise Operations" },
+  { icon: Sparkles, label: "AI Systems" },
+  { icon: Rocket, label: "On-demand Services" },
 ];
 
 export const clients = ["NovaBank", "HealthCore", "RetailX", "Meridian", "PrimeOps", "OrbitNet", "CivicAI", "Lumina", "Vertex", "Apex"];
