@@ -21,8 +21,8 @@ const solutions = [
 export const Route = createFileRoute("/solutions")({
   head: () => ({
     meta: [
-      { title: "Solutions — FluxtonX" },
-      { name: "description", content: "FluxtonX delivers enterprise-grade technological architectures that redefine operational efficiency." },
+      { title: "Our Solutions | FluxtonX" },
+      { name: "description", content: "Explore FluxtonX solutions including AI platforms, mobile development, SaaS engineering, Fintech and enterprise automation." },
     ],
   }),
   component: SolutionsPage,

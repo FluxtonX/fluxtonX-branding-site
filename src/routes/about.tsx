@@ -48,8 +48,8 @@ const markers = [
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "Company — FluxtonX" },
-      { name: "description", content: "FluxtonX is a product engineering and AI solutions company helping startups, enterprises, and fast-growing businesses build scalable digital products with speed, precision, and long-term vision." },
+      { title: "About Us | FluxtonX" },
+      { name: "description", content: "Founded in 2021 by Muhammad Nasir, FluxtonX is a product engineering company building scalable tech solutions." },
     ],
   }),
   component: AboutPage,

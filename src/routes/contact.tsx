@@ -8,8 +8,8 @@ import mapImg from "@/assets/contact-map.jpg";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — FluxtonX" },
-      { name: "description", content: "Connect with our global consultants to explore how architectural precision can redefine your enterprise performance." },
+      { title: "Contact Us | FluxtonX" },
+      { name: "description", content: "Get in touch with FluxtonX to start your product engineering or AI solutions project today." },
     ],
   }),
   component: ContactPage,

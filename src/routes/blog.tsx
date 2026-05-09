@@ -10,8 +10,8 @@ import t1 from "@/assets/team-1.jpg";
 export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
-      { title: "Blog & Insights — FluxtonX" },
-      { name: "description", content: "Expert perspectives on architectural precision, global transformation, and the next generation of enterprise technology." },
+      { title: "Blog & Resources | FluxtonX" },
+      { name: "description", content: "Read the latest insights on AI, product engineering, mobile development and technology from FluxtonX." },
     ],
   }),
   component: BlogPage,

@@ -29,8 +29,8 @@ const benefits = [
 export const Route = createFileRoute("/partners")({
   head: () => ({
     meta: [
-      { title: "Partners — FluxtonX" },
-      { name: "description", content: "FluxtonX partners with world-class technology providers to deliver architectural precision and digital transformation at a global scale." },
+      { title: "Partners | FluxtonX" },
+      { name: "description", content: "Partner with FluxtonX to deliver world class product engineering and AI solutions to your clients." },
     ],
   }),
   component: PartnersPage,

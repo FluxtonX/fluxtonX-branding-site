@@ -19,8 +19,8 @@ const iconByLabel = Object.fromEntries(industries.map((i) => [i.label, i.icon]))
 export const Route = createFileRoute("/industries")({
   head: () => ({
     meta: [
-      { title: "Industries — FluxtonX" },
-      { name: "description", content: "Specialized digital expertise across finance, healthcare, retail, education, government and logistics." },
+      { title: "Industries We Serve | FluxtonX" },
+      { name: "description", content: "FluxtonX serves healthcare, fitness, logistics, e-commerce, enterprise and AI industries worldwide." },
     ],
   }),
   component: IndustriesPage,

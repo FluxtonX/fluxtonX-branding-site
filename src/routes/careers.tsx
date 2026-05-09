@@ -28,8 +28,8 @@ const tabs = ["All Roles", "Engineering", "Design", "Product"];
 export const Route = createFileRoute("/careers")({
   head: () => ({
     meta: [
-      { title: "Careers — FluxtonX" },
-      { name: "description", content: "Join a global collective of strategists, engineers, and designers dedicated to dismantling complexity and building enterprise-grade precision." },
+      { title: "Careers | FluxtonX" },
+      { name: "description", content: "Join the FluxtonX team and work on cutting edge AI and product engineering projects." },
     ],
   }),
   component: CareersPage,

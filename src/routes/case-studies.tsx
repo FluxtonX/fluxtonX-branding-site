@@ -25,8 +25,8 @@ const SERVICES = ["All Services", "Cloud", "AI", "Data", "Cybersecurity"];
 export const Route = createFileRoute("/case-studies")({
   head: () => ({
     meta: [
-      { title: "Case Studies — FluxtonX" },
-      { name: "description", content: "Discover how FluxtonX partners with the world's leading organizations to navigate digital complexity and drive sustainable growth." },
+      { title: "Case Studies | FluxtonX" },
+      { name: "description", content: "Explore how FluxtonX has helped startups and enterprises build impactful digital products." },
     ],
   }),
   component: CaseStudiesPage,

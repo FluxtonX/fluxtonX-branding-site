@@ -16,8 +16,8 @@ import logo from "@/assets/fluxtonx-logo.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "FluxtonX — Transforming Businesses Through Intelligent Technology" },
-      { name: "description", content: "FluxtonX is a product engineering and AI solutions company helping startups, enterprises, and fast-growing businesses build scalable digital products with speed, precision, and long-term vision." },
+      { title: "FluxtonX | Product Engineering & AI Solutions Company" },
+      { name: "description", content: "FluxtonX helps startups and enterprises build scalable digital products with AI, mobile apps, SaaS and web development." },
     ],
   }),
   component: Home,
