@@ -42,11 +42,23 @@ export function Footer() {
             <div key={c.title}>
               <h4 className="text-sm font-semibold text-white tracking-wide uppercase">{c.title}</h4>
               <ul className="mt-4 space-y-2.5">
-                {c.links.map((l) => (
-                  <li key={l}>
-                    <a href="#" className="text-sm hover:text-white transition-colors">{l}</a>
-                  </li>
-                ))}
+                {c.links.map((l) => {
+                  let to = "/";
+                  if (l === "About Us") to = "/about";
+                  else if (l === "Careers") to = "/careers";
+                  else if (l === "Partners") to = "/partners";
+                  else if (l === "Blog & Insights") to = "/blog";
+                  else if (l === "Case Studies") to = "/case-studies";
+                  else if (c.title === "Solutions") to = "/solutions";
+                  else if (c.title === "Industries") to = "/industries";
+                  else if (c.title === "Resources" && l === "Support") to = "/contact";
+
+                  return (
+                    <li key={l}>
+                      <Link to={to} className="text-sm hover:text-white transition-colors">{l}</Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
