@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as PartnersRouteImport } from './routes/partners'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -18,16 +17,19 @@ import { Route as CareersRouteImport } from './routes/careers'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SolutionsIndexRouteImport } from './routes/solutions/index'
+import { Route as SolutionsWebPlatformsDashboardsRouteImport } from './routes/solutions/web-platforms-dashboards'
+import { Route as SolutionsUiUxDesignRouteImport } from './routes/solutions/ui-ux-design'
+import { Route as SolutionsSaasProductEngineeringRouteImport } from './routes/solutions/saas-product-engineering'
+import { Route as SolutionsMobileAppDevelopmentRouteImport } from './routes/solutions/mobile-app-development'
+import { Route as SolutionsFintechPaymentSystemsRouteImport } from './routes/solutions/fintech-payment-systems'
+import { Route as SolutionsEnterpriseWorkflowAutomationRouteImport } from './routes/solutions/enterprise-workflow-automation'
+import { Route as SolutionsAiPoweredPlatformsRouteImport } from './routes/solutions/ai-powered-platforms'
 import { Route as SolutionsSlugRouteImport } from './routes/solutions.$slug'
 import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
-const SolutionsRoute = SolutionsRouteImport.update({
-  id: '/solutions',
-  path: '/solutions',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PartnersRoute = PartnersRouteImport.update({
   id: '/partners',
   path: '/partners',
@@ -68,10 +70,56 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SolutionsIndexRoute = SolutionsIndexRouteImport.update({
+  id: '/solutions/',
+  path: '/solutions/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsWebPlatformsDashboardsRoute =
+  SolutionsWebPlatformsDashboardsRouteImport.update({
+    id: '/solutions/web-platforms-dashboards',
+    path: '/solutions/web-platforms-dashboards',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolutionsUiUxDesignRoute = SolutionsUiUxDesignRouteImport.update({
+  id: '/solutions/ui-ux-design',
+  path: '/solutions/ui-ux-design',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsSaasProductEngineeringRoute =
+  SolutionsSaasProductEngineeringRouteImport.update({
+    id: '/solutions/saas-product-engineering',
+    path: '/solutions/saas-product-engineering',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolutionsMobileAppDevelopmentRoute =
+  SolutionsMobileAppDevelopmentRouteImport.update({
+    id: '/solutions/mobile-app-development',
+    path: '/solutions/mobile-app-development',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolutionsFintechPaymentSystemsRoute =
+  SolutionsFintechPaymentSystemsRouteImport.update({
+    id: '/solutions/fintech-payment-systems',
+    path: '/solutions/fintech-payment-systems',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolutionsEnterpriseWorkflowAutomationRoute =
+  SolutionsEnterpriseWorkflowAutomationRouteImport.update({
+    id: '/solutions/enterprise-workflow-automation',
+    path: '/solutions/enterprise-workflow-automation',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolutionsAiPoweredPlatformsRoute =
+  SolutionsAiPoweredPlatformsRouteImport.update({
+    id: '/solutions/ai-powered-platforms',
+    path: '/solutions/ai-powered-platforms',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SolutionsSlugRoute = SolutionsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => SolutionsRoute,
+  id: '/solutions/$slug',
+  path: '/solutions/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const IndustriesSlugRoute = IndustriesSlugRouteImport.update({
   id: '/$slug',
@@ -98,11 +146,18 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/partners': typeof PartnersRoute
-  '/solutions': typeof SolutionsRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
+  '/solutions/ai-powered-platforms': typeof SolutionsAiPoweredPlatformsRoute
+  '/solutions/enterprise-workflow-automation': typeof SolutionsEnterpriseWorkflowAutomationRoute
+  '/solutions/fintech-payment-systems': typeof SolutionsFintechPaymentSystemsRoute
+  '/solutions/mobile-app-development': typeof SolutionsMobileAppDevelopmentRoute
+  '/solutions/saas-product-engineering': typeof SolutionsSaasProductEngineeringRoute
+  '/solutions/ui-ux-design': typeof SolutionsUiUxDesignRoute
+  '/solutions/web-platforms-dashboards': typeof SolutionsWebPlatformsDashboardsRoute
+  '/solutions/': typeof SolutionsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -113,11 +168,18 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/partners': typeof PartnersRoute
-  '/solutions': typeof SolutionsRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
+  '/solutions/ai-powered-platforms': typeof SolutionsAiPoweredPlatformsRoute
+  '/solutions/enterprise-workflow-automation': typeof SolutionsEnterpriseWorkflowAutomationRoute
+  '/solutions/fintech-payment-systems': typeof SolutionsFintechPaymentSystemsRoute
+  '/solutions/mobile-app-development': typeof SolutionsMobileAppDevelopmentRoute
+  '/solutions/saas-product-engineering': typeof SolutionsSaasProductEngineeringRoute
+  '/solutions/ui-ux-design': typeof SolutionsUiUxDesignRoute
+  '/solutions/web-platforms-dashboards': typeof SolutionsWebPlatformsDashboardsRoute
+  '/solutions': typeof SolutionsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -129,11 +191,18 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/partners': typeof PartnersRoute
-  '/solutions': typeof SolutionsRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
+  '/solutions/ai-powered-platforms': typeof SolutionsAiPoweredPlatformsRoute
+  '/solutions/enterprise-workflow-automation': typeof SolutionsEnterpriseWorkflowAutomationRoute
+  '/solutions/fintech-payment-systems': typeof SolutionsFintechPaymentSystemsRoute
+  '/solutions/mobile-app-development': typeof SolutionsMobileAppDevelopmentRoute
+  '/solutions/saas-product-engineering': typeof SolutionsSaasProductEngineeringRoute
+  '/solutions/ui-ux-design': typeof SolutionsUiUxDesignRoute
+  '/solutions/web-platforms-dashboards': typeof SolutionsWebPlatformsDashboardsRoute
+  '/solutions/': typeof SolutionsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -146,11 +215,18 @@ export interface FileRouteTypes {
     | '/contact'
     | '/industries'
     | '/partners'
-    | '/solutions'
     | '/blog/$slug'
     | '/case-studies/$slug'
     | '/industries/$slug'
     | '/solutions/$slug'
+    | '/solutions/ai-powered-platforms'
+    | '/solutions/enterprise-workflow-automation'
+    | '/solutions/fintech-payment-systems'
+    | '/solutions/mobile-app-development'
+    | '/solutions/saas-product-engineering'
+    | '/solutions/ui-ux-design'
+    | '/solutions/web-platforms-dashboards'
+    | '/solutions/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -161,11 +237,18 @@ export interface FileRouteTypes {
     | '/contact'
     | '/industries'
     | '/partners'
-    | '/solutions'
     | '/blog/$slug'
     | '/case-studies/$slug'
     | '/industries/$slug'
     | '/solutions/$slug'
+    | '/solutions/ai-powered-platforms'
+    | '/solutions/enterprise-workflow-automation'
+    | '/solutions/fintech-payment-systems'
+    | '/solutions/mobile-app-development'
+    | '/solutions/saas-product-engineering'
+    | '/solutions/ui-ux-design'
+    | '/solutions/web-platforms-dashboards'
+    | '/solutions'
   id:
     | '__root__'
     | '/'
@@ -176,11 +259,18 @@ export interface FileRouteTypes {
     | '/contact'
     | '/industries'
     | '/partners'
-    | '/solutions'
     | '/blog/$slug'
     | '/case-studies/$slug'
     | '/industries/$slug'
     | '/solutions/$slug'
+    | '/solutions/ai-powered-platforms'
+    | '/solutions/enterprise-workflow-automation'
+    | '/solutions/fintech-payment-systems'
+    | '/solutions/mobile-app-development'
+    | '/solutions/saas-product-engineering'
+    | '/solutions/ui-ux-design'
+    | '/solutions/web-platforms-dashboards'
+    | '/solutions/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -192,18 +282,19 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   IndustriesRoute: typeof IndustriesRouteWithChildren
   PartnersRoute: typeof PartnersRoute
-  SolutionsRoute: typeof SolutionsRouteWithChildren
+  SolutionsSlugRoute: typeof SolutionsSlugRoute
+  SolutionsAiPoweredPlatformsRoute: typeof SolutionsAiPoweredPlatformsRoute
+  SolutionsEnterpriseWorkflowAutomationRoute: typeof SolutionsEnterpriseWorkflowAutomationRoute
+  SolutionsFintechPaymentSystemsRoute: typeof SolutionsFintechPaymentSystemsRoute
+  SolutionsMobileAppDevelopmentRoute: typeof SolutionsMobileAppDevelopmentRoute
+  SolutionsSaasProductEngineeringRoute: typeof SolutionsSaasProductEngineeringRoute
+  SolutionsUiUxDesignRoute: typeof SolutionsUiUxDesignRoute
+  SolutionsWebPlatformsDashboardsRoute: typeof SolutionsWebPlatformsDashboardsRoute
+  SolutionsIndexRoute: typeof SolutionsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/solutions': {
-      id: '/solutions'
-      path: '/solutions'
-      fullPath: '/solutions'
-      preLoaderRoute: typeof SolutionsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/partners': {
       id: '/partners'
       path: '/partners'
@@ -260,12 +351,68 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solutions/': {
+      id: '/solutions/'
+      path: '/solutions'
+      fullPath: '/solutions/'
+      preLoaderRoute: typeof SolutionsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/web-platforms-dashboards': {
+      id: '/solutions/web-platforms-dashboards'
+      path: '/solutions/web-platforms-dashboards'
+      fullPath: '/solutions/web-platforms-dashboards'
+      preLoaderRoute: typeof SolutionsWebPlatformsDashboardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/ui-ux-design': {
+      id: '/solutions/ui-ux-design'
+      path: '/solutions/ui-ux-design'
+      fullPath: '/solutions/ui-ux-design'
+      preLoaderRoute: typeof SolutionsUiUxDesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/saas-product-engineering': {
+      id: '/solutions/saas-product-engineering'
+      path: '/solutions/saas-product-engineering'
+      fullPath: '/solutions/saas-product-engineering'
+      preLoaderRoute: typeof SolutionsSaasProductEngineeringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/mobile-app-development': {
+      id: '/solutions/mobile-app-development'
+      path: '/solutions/mobile-app-development'
+      fullPath: '/solutions/mobile-app-development'
+      preLoaderRoute: typeof SolutionsMobileAppDevelopmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/fintech-payment-systems': {
+      id: '/solutions/fintech-payment-systems'
+      path: '/solutions/fintech-payment-systems'
+      fullPath: '/solutions/fintech-payment-systems'
+      preLoaderRoute: typeof SolutionsFintechPaymentSystemsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/enterprise-workflow-automation': {
+      id: '/solutions/enterprise-workflow-automation'
+      path: '/solutions/enterprise-workflow-automation'
+      fullPath: '/solutions/enterprise-workflow-automation'
+      preLoaderRoute: typeof SolutionsEnterpriseWorkflowAutomationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/ai-powered-platforms': {
+      id: '/solutions/ai-powered-platforms'
+      path: '/solutions/ai-powered-platforms'
+      fullPath: '/solutions/ai-powered-platforms'
+      preLoaderRoute: typeof SolutionsAiPoweredPlatformsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/solutions/$slug': {
       id: '/solutions/$slug'
-      path: '/$slug'
+      path: '/solutions/$slug'
       fullPath: '/solutions/$slug'
       preLoaderRoute: typeof SolutionsSlugRouteImport
-      parentRoute: typeof SolutionsRoute
+      parentRoute: typeof rootRouteImport
     }
     '/industries/$slug': {
       id: '/industries/$slug'
@@ -325,18 +472,6 @@ const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
   IndustriesRouteChildren,
 )
 
-interface SolutionsRouteChildren {
-  SolutionsSlugRoute: typeof SolutionsSlugRoute
-}
-
-const SolutionsRouteChildren: SolutionsRouteChildren = {
-  SolutionsSlugRoute: SolutionsSlugRoute,
-}
-
-const SolutionsRouteWithChildren = SolutionsRoute._addFileChildren(
-  SolutionsRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -346,7 +481,16 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   IndustriesRoute: IndustriesRouteWithChildren,
   PartnersRoute: PartnersRoute,
-  SolutionsRoute: SolutionsRouteWithChildren,
+  SolutionsSlugRoute: SolutionsSlugRoute,
+  SolutionsAiPoweredPlatformsRoute: SolutionsAiPoweredPlatformsRoute,
+  SolutionsEnterpriseWorkflowAutomationRoute:
+    SolutionsEnterpriseWorkflowAutomationRoute,
+  SolutionsFintechPaymentSystemsRoute: SolutionsFintechPaymentSystemsRoute,
+  SolutionsMobileAppDevelopmentRoute: SolutionsMobileAppDevelopmentRoute,
+  SolutionsSaasProductEngineeringRoute: SolutionsSaasProductEngineeringRoute,
+  SolutionsUiUxDesignRoute: SolutionsUiUxDesignRoute,
+  SolutionsWebPlatformsDashboardsRoute: SolutionsWebPlatformsDashboardsRoute,
+  SolutionsIndexRoute: SolutionsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

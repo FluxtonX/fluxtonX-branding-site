@@ -18,7 +18,7 @@ const solutions = [
   { slug: "enterprise-web", icon: Globe, name: "Enterprise Web", desc: "Modern web frameworks designed for massive concurrency and seamless global content delivery.", cat: "Infrastructure" },
 ];
 
-export const Route = createFileRoute("/solutions")({
+export const Route = createFileRoute("/solutions/")({
   head: () => ({
     meta: [
       { title: "Our Solutions | FluxtonX" },

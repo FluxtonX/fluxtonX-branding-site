@@ -3,7 +3,7 @@ import { Linkedin, Twitter, Github, Youtube } from "lucide-react";
 import logo from "@/assets/fluxtonx-logo.png";
 
 const cols = [
-  { title: "Solutions", links: ["Cloud Native", "Data Mastery", "Cyber Resilience", "AI Engineering", "Digital Strategy"] },
+  { title: "Services", links: ["Cloud Native", "Data Mastery", "Cyber Resilience", "AI Engineering", "Digital Strategy"] },
   { title: "Industries", links: ["Finance", "Healthcare", "Retail", "Government", "Logistics"] },
   { title: "Company", links: ["About Us", "Leadership", "Careers", "Newsroom", "Partners"] },
   { title: "Resources", links: ["Blog & Insights", "Case Studies", "Whitepapers", "Events", "Support"] },
@@ -49,7 +49,7 @@ export function Footer() {
                   else if (l === "Partners") to = "/partners";
                   else if (l === "Blog & Insights") to = "/blog";
                   else if (l === "Case Studies") to = "/case-studies";
-                  else if (c.title === "Solutions") to = "/solutions";
+                  else if (c.title === "Services") to = "/solutions";
                   else if (c.title === "Industries") to = "/industries";
                   else if (c.title === "Resources" && l === "Support") to = "/contact";
 

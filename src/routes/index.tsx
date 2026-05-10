@@ -50,9 +50,6 @@ function Home() {
 
 function Hero() {
   const heroRef = useRef<HTMLElement>(null);
-  const illustrationRef = useRef<HTMLDivElement>(null);
-  const mouseRef = useRef({ x: 0, y: 0 });
-  
   const monitorRef = useRef<HTMLDivElement>(null);
   const analyticsRef = useRef<HTMLDivElement>(null);
   const codeRef = useRef<HTMLDivElement>(null);
@@ -61,142 +58,27 @@ function Hero() {
   const decorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const hero = heroRef.current;
-    if (!hero) return;
-
-    const dotCount = 20;
-    const dots: HTMLDivElement[] = [];
-    const positions = Array.from({ length: dotCount }, () => ({ x: 0, y: 0 }));
-    const colors = ["#6366F1", "#818CF8", "#A855F7", "#EC4899", "#F472B6", "#60A5FA", "#38BDF8"];
-
-    for (let i = 0; i < dotCount; i++) {
-      const dot = document.createElement("div");
-      const size = 20 * Math.pow(0.85, i);
-      dot.style.width = `${size}px`;
-      dot.style.height = `${size}px`;
-      dot.style.position = "absolute";
-      dot.style.borderRadius = "50%";
-      dot.style.pointerEvents = "none";
-      dot.style.zIndex = "1";
-      dot.style.backgroundColor = colors[i % colors.length];
-      dot.style.opacity = "0";
-      dot.style.transition = `opacity 0.3s ease, transform ${50 + i * (350 / 19)}ms linear`;
-      hero.appendChild(dot);
-      dots.push(dot);
-    }
-
-    const glow = document.createElement("div");
-    glow.style.width = "300px";
-    glow.style.height = "300px";
-    glow.style.position = "absolute";
-    glow.style.borderRadius = "50%";
-    glow.style.pointerEvents = "none";
-    glow.style.zIndex = "1";
-    glow.style.background = "radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%)";
-    glow.style.opacity = "0";
-    glow.style.transition = "opacity 0.5s ease";
-    let glowPos = { x: 0, y: 0 };
-    hero.appendChild(glow);
-
     const handleMouseMove = (e: MouseEvent) => {
-      const rect = hero.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      mouseRef.current = { x, y };
-
-      for (let i = 0; i < 6; i++) {
-        const sparkle = document.createElement("div");
-        const size = Math.random() * 6 + 4;
-        sparkle.style.width = `${size}px`;
-        sparkle.style.height = `${size}px`;
-        sparkle.style.position = "absolute";
-        sparkle.style.borderRadius = "50%";
-        sparkle.style.pointerEvents = "none";
-        sparkle.style.zIndex = "1";
-        sparkle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        sparkle.style.left = `${x - size / 2}px`;
-        sparkle.style.top = `${y - size / 2}px`;
-        sparkle.style.transition = "transform 0.6s ease-out, opacity 0.6s ease-out";
-        hero.appendChild(sparkle);
-
-        const tx = (Math.random() - 0.5) * 100;
-        const ty = (Math.random() - 0.5) * 100;
-        
-        requestAnimationFrame(() => {
-          sparkle.style.transform = `translate(${tx}px, ${ty}px)`;
-          sparkle.style.opacity = "0";
-        });
-
-        setTimeout(() => sparkle.remove(), 700);
-      }
-
-      // Layered Parallax
+      // Light Parallax
       const centerX = window.innerWidth / 2;
       const centerY = window.innerHeight / 2;
       const dx = e.clientX - centerX;
       const dy = e.clientY - centerY;
 
-      if (monitorRef.current) monitorRef.current.style.transform = `translate(${dx * 0.02}px, ${dy * 0.02}px) rotate(2deg)`;
-      if (analyticsRef.current) analyticsRef.current.style.transform = `translate(${dx * 0.035}px, ${dy * 0.035}px) rotate(-3deg)`;
-      if (codeRef.current) codeRef.current.style.transform = `translate(${dx * 0.015}px, ${dy * 0.015}px) rotate(1deg)`;
-      if (notifRef.current) notifRef.current.style.transform = `translate(${dx * 0.04}px, ${dy * 0.04}px) rotate(-2deg)`;
-      if (pieRef.current) pieRef.current.style.transform = `translate(${dx * 0.025}px, ${dy * 0.025}px) rotate(6deg)`;
-      if (decorRef.current) decorRef.current.style.transform = `translate(${dx * 0.05}px, ${dy * 0.05}px)`;
+      if (monitorRef.current) monitorRef.current.style.transform = `translate(${dx * 0.01}px, ${dy * 0.01}px) rotate(2deg)`;
+      if (analyticsRef.current) analyticsRef.current.style.transform = `translate(${dx * 0.02}px, ${dy * 0.02}px) rotate(-3deg)`;
+      if (codeRef.current) codeRef.current.style.transform = `translate(${dx * 0.005}px, ${dy * 0.005}px) rotate(1deg)`;
+      if (notifRef.current) notifRef.current.style.transform = `translate(${dx * 0.025}px, ${dy * 0.025}px) rotate(-2deg)`;
+      if (pieRef.current) pieRef.current.style.transform = `translate(${dx * 0.015}px, ${dy * 0.015}px) rotate(6deg)`;
+      if (decorRef.current) decorRef.current.style.transform = `translate(${dx * 0.03}px, ${dy * 0.03}px)`;
     };
 
-    const handleMouseEnter = () => {
-      dots.forEach(d => d.style.opacity = "1");
-      glow.style.opacity = "1";
-    };
-
-    const handleMouseLeave = () => {
-      dots.forEach(d => d.style.opacity = "0");
-      glow.style.opacity = "0";
-    };
-
-    hero.addEventListener("mousemove", handleMouseMove);
-    hero.addEventListener("mouseenter", handleMouseEnter);
-    hero.addEventListener("mouseleave", handleMouseLeave);
-
-    let animationId: number;
-    const animate = () => {
-      positions[0].x = mouseRef.current.x;
-      positions[0].y = mouseRef.current.y;
-
-      for (let i = 1; i < dotCount; i++) {
-        positions[i].x += (positions[i - 1].x - positions[i].x) * 0.35;
-        positions[i].y += (positions[i - 1].y - positions[i].y) * 0.35;
-      }
-
-      dots.forEach((dot, i) => {
-        const size = parseFloat(dot.style.width);
-        dot.style.left = "0";
-        dot.style.top = "0";
-        dot.style.transform = `translate(${positions[i].x - size / 2}px, ${positions[i].y - size / 2}px)`;
-      });
-
-      glowPos.x += (mouseRef.current.x - glowPos.x) * 0.08;
-      glowPos.y += (mouseRef.current.y - glowPos.y) * 0.08;
-      glow.style.left = "0";
-      glow.style.top = "0";
-      glow.style.transform = `translate(${glowPos.x - 150}px, ${glowPos.y - 150}px)`;
-
-      animationId = requestAnimationFrame(animate);
-    };
-    animate();
-
-    return () => {
-      hero.removeEventListener("mousemove", handleMouseMove);
-      hero.removeEventListener("mouseenter", handleMouseEnter);
-      hero.removeEventListener("mouseleave", handleMouseLeave);
-      cancelAnimationFrame(animationId);
-      dots.forEach(d => d.remove());
-      glow.remove();
-    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
-    <section ref={heroRef} className="relative overflow-hidden bg-surface cursor-none">
+    <section ref={heroRef} className="relative overflow-hidden bg-surface">
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div className="animate-fade-up">
@@ -222,7 +104,7 @@ function Hero() {
           </div>
 
           <div className="relative animate-fade-up">
-            <div ref={illustrationRef} className="relative w-full aspect-[4/3] max-w-[600px] mx-auto transition-transform duration-75 ease-out">
+            <div className="relative w-full aspect-[4/3] max-w-[600px] mx-auto transition-transform duration-75 ease-out">
               {/* SVG Desk Platform */}
               <svg className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-auto opacity-90" viewBox="0 0 600 360" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <ellipse cx="300" cy="180" rx="300" ry="180" fill="#1B2B6B" />

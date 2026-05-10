@@ -5,15 +5,27 @@ import logo from "@/assets/fluxtonx-logo.png";
 import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
-  { to: "/solutions", label: "Solutions" },
+  { to: "/solutions", label: "Services", hasDropdown: true },
   { to: "/industries", label: "Industries" },
   { to: "/about", label: "Company" },
   { to: "/blog", label: "Resources" },
 ];
 
+const services = [
+  { label: "AI-Powered Platforms", to: "/solutions/ai-powered-platforms" },
+  { label: "Mobile App Development", to: "/solutions/mobile-app-development" },
+  { label: "SaaS Product Engineering", to: "/solutions/saas-product-engineering" },
+  { label: "Fintech & Payment Systems", to: "/solutions/fintech-payment-systems" },
+  { label: "Enterprise Workflow Automation", to: "/solutions/enterprise-workflow-automation" },
+  { label: "Web Platforms & Dashboards", to: "/solutions/web-platforms-dashboards" },
+  { label: "UI/UX Design", to: "/solutions/ui-ux-design" },
+];
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -24,26 +36,44 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 bg-background/95 backdrop-blur transition-shadow ${scrolled ? "shadow-[0_1px_0_0_var(--color-border)]" : "border-b border-border"
+      className={`fixed top-0 inset-x-0 z-50 bg-white dark:bg-gray-900 transition-shadow ${scrolled ? "shadow-lg" : "border-b border-gray-200 dark:border-gray-700"
         }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <img src={logo} alt="FluxtonX" className="h-8 w-auto" />
-
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
           {navLinks.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to as any}
-              className="group inline-flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-              activeProps={{ className: "text-primary" }}
-            >
-              {l.label}
-              <ChevronDown className="h-3.5 w-3.5 opacity-60 group-hover:opacity-100 transition" />
-            </Link>
+            <div key={l.to} className="relative group">
+              <Link
+                to={l.to as any}
+                className="inline-flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                activeProps={{ className: "text-primary" }}
+              >
+                {l.label}
+                {l.hasDropdown && (
+                  <ChevronDown className="h-3.5 w-3.5 opacity-60 transition-transform duration-200 group-hover:rotate-180 group-hover:opacity-100" />
+                )}
+              </Link>
+              
+              {l.hasDropdown && (
+                <div className="absolute top-full left-0 pt-1 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
+                  <div className="bg-white shadow-lg rounded-xl border border-gray-100 py-2 min-w-48 overflow-hidden">
+                    {services.map((s) => (
+                      <Link
+                        key={s.to}
+                        to={s.to as any}
+                        className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
+                      >
+                        {s.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           ))}
         </nav>
 
@@ -76,14 +106,44 @@ export function Navbar() {
         <div className="lg:hidden border-t border-border bg-background">
           <div className="px-4 py-4 space-y-1">
             {navLinks.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to as any}
-                onClick={() => setOpen(false)}
-                className="block px-3 py-2.5 text-base font-medium text-foreground/90 hover:bg-muted rounded-md"
-              >
-                {l.label}
-              </Link>
+              <div key={l.to}>
+                {l.hasDropdown ? (
+                  <>
+                    <button
+                      onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                      className="flex w-full items-center justify-between px-3 py-2.5 text-base font-medium text-foreground/90 hover:bg-muted rounded-md"
+                    >
+                      {l.label}
+                      <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    {mobileServicesOpen && (
+                      <div className="pl-4 flex flex-col gap-1 mt-1">
+                        {services.map((s) => (
+                          <Link
+                            key={s.to}
+                            to={s.to as any}
+                            onClick={() => {
+                              setOpen(false);
+                              setMobileServicesOpen(false);
+                            }}
+                            className="block py-2 px-3 text-sm text-gray-600 hover:text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+                          >
+                            {s.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <Link
+                    to={l.to as any}
+                    onClick={() => setOpen(false)}
+                    className="block px-3 py-2.5 text-base font-medium text-foreground/90 hover:bg-muted rounded-md"
+                  >
+                    {l.label}
+                  </Link>
+                )}
+              </div>
             ))}
             <Link
               to="/contact"
@@ -98,3 +158,4 @@ export function Navbar() {
     </header>
   );
 }
+

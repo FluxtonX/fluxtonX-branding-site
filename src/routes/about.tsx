@@ -28,7 +28,7 @@ const values = [
 ];
 
 const team = [
-  { name: "Muhammad Nasir", role: "CEO & Business Developer", img: nasir, linkedin: "https://www.linkedin.com/in/muhammadnasirpk44" },
+  { name: "Muhammad Nasir", role: "CEO & Business Developer", img: nasir, linkedin: "https://www.linkedin.com/in/muhammad-nasir-970926177/" },
   { name: "Obaid Ullah", role: "Full Stack Web Developer", img: ubaid, linkedin: "https://www.linkedin.com/in/obaid-ullah-b01835266/" },
   { name: "Rahmat U", role: "UI/UX Product Designer", img: rahmat, linkedin: "https://www.linkedin.com/in/rahmat-u-9a63b1243/" },
   { name: "Muhammad Mudassir", role: "Full Stack Developer", img: mudassir, linkedin: "https://www.linkedin.com/in/muhammad-mudassir5/" },
