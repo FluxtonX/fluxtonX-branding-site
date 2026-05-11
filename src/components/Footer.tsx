@@ -69,9 +69,9 @@ export function Footer() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/60">© {new Date().getFullYear()} FluxtonX. All rights reserved.</p>
           <div className="flex items-center gap-5 text-xs text-white/60">
-            <a href="#" className="hover:text-white">Privacy Policy</a>
-            <a href="#" className="hover:text-white">Terms of Service</a>
-            <a href="#" className="hover:text-white">Cookies</a>
+            <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-white">Terms of Service</Link>
+            <Link to="/cookies" className="hover:text-white">Cookies</Link>
           </div>
           <div className="flex items-center gap-3">
             {[Linkedin, Twitter, Github, Youtube].map((Icon, i) => (

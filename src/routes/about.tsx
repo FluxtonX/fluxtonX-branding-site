@@ -214,7 +214,7 @@ function AboutPage() {
               <h2 className="mt-3 text-3xl font-bold text-foreground">Global Footprint</h2>
               <ul className="mt-8 space-y-5">
                 {[
-                  ["Islamabad, PK", "Regional Operations & R&D Center"],
+                  ["Islamabad, PK", "Aspire Building, Business Square, Block C, Gulberg Greens"],
                   ["Dubai, UAE", "MENA Strategic Hub"],
                   ["London, UK", "European Financial Markets HQ"],
                   ["Singapore", "APAC Transformation Center"],

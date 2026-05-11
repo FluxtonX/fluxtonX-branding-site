@@ -84,8 +84,8 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 inset-x-0 z-40 bg-white dark:bg-gray-900 transition-all ${
-          scrolled ? "shadow-sm" : "border-b border-gray-100 dark:border-gray-800"
+        className={`fixed top-0 inset-x-0 z-40 bg-white dark:bg-surface transition-all ${
+          scrolled ? "shadow-sm" : "border-b border-gray-100 dark:border-border"
         }`}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
@@ -103,7 +103,7 @@ export function Navbar() {
             </Link>
             <button
               onClick={() => setOpen((v) => !v)}
-              className="inline-flex items-center justify-center h-11 w-11 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              className="inline-flex items-center justify-center h-11 w-11 rounded-md border border-gray-200 dark:border-border bg-white dark:bg-surface-2 hover:bg-gray-50 dark:hover:bg-surface-2 transition-colors"
               aria-label="Toggle menu"
               aria-expanded={open}
             >
@@ -115,20 +115,20 @@ export function Navbar() {
 
       {/* Full-screen overlay menu */}
       <div
-        className={`fixed inset-0 z-50 bg-white dark:bg-gray-900 transition-all duration-300 overflow-y-auto ${
+        className={`fixed inset-0 z-50 bg-white dark:bg-surface transition-all duration-300 overflow-y-auto ${
           open ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
         <div className="min-h-full flex flex-col">
           {/* Top bar inside overlay */}
-          <div className="sticky top-0 z-10 bg-white/95 dark:bg-gray-900/95 backdrop-blur border-b border-gray-100 dark:border-gray-800">
+          <div className="sticky top-0 z-10 bg-white/95 dark:bg-surface/95 backdrop-blur border-b border-gray-100 dark:border-border">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
               <Link to="/" className="flex items-center gap-2" onClick={close}>
                 <img src={logo} alt="FluxtonX" className="h-9 w-auto" />
               </Link>
               <button
                 onClick={close}
-                className="inline-flex items-center justify-center h-11 w-11 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                className="inline-flex items-center justify-center h-11 w-11 rounded-full border border-gray-200 dark:border-border bg-white dark:bg-surface-2 hover:bg-gray-50 dark:hover:bg-surface-2 transition-colors"
                 aria-label="Close menu"
               >
                 <X className="h-5 w-5" />
@@ -138,13 +138,13 @@ export function Navbar() {
 
           <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex-1">
             {/* Services accordion */}
-            <div className="border-b border-gray-200 dark:border-gray-800 pb-8">
+            <div className="border-b border-gray-200 dark:border-border pb-8">
               <button
                 onClick={() => setServicesOpen((v) => !v)}
                 className="w-full flex items-center justify-between py-4 text-left"
               >
                 <span className="text-2xl sm:text-3xl font-medium text-foreground">Services</span>
-                <span className="inline-flex items-center justify-center h-10 w-10 rounded-md bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                <span className="inline-flex items-center justify-center h-10 w-10 rounded-md bg-gray-50 dark:bg-surface-2 border border-gray-200 dark:border-border">
                   {servicesOpen ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
                 </span>
               </button>
@@ -197,7 +197,7 @@ export function Navbar() {
             {otherSections.map((sec) => {
               const isOpen = expanded === sec.key;
               return (
-                <div key={sec.key} className="border-b border-gray-200 dark:border-gray-800">
+                <div key={sec.key} className="border-b border-gray-200 dark:border-border">
                   <button
                     onClick={() => setExpanded(isOpen ? null : sec.key)}
                     className="w-full flex items-center justify-between py-6 text-left"
@@ -205,7 +205,7 @@ export function Navbar() {
                     <span className="text-2xl sm:text-3xl font-medium text-foreground">
                       {sec.title}
                     </span>
-                    <span className="inline-flex items-center justify-center h-10 w-10 rounded-md bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                    <span className="inline-flex items-center justify-center h-10 w-10 rounded-md bg-gray-50 dark:bg-surface-2 border border-gray-200 dark:border-border">
                       {isOpen ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
                     </span>
                   </button>

@@ -9,8 +9,11 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PartnersRouteImport } from './routes/partners'
 import { Route as IndustriesRouteImport } from './routes/industries'
+import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as CareersRouteImport } from './routes/careers'
@@ -30,6 +33,16 @@ import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PartnersRoute = PartnersRouteImport.update({
   id: '/partners',
   path: '/partners',
@@ -38,6 +51,11 @@ const PartnersRoute = PartnersRouteImport.update({
 const IndustriesRoute = IndustriesRouteImport.update({
   id: '/industries',
   path: '/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -144,8 +162,11 @@ export interface FileRoutesByFullPath {
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/partners': typeof PartnersRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/industries/$slug': typeof IndustriesSlugRoute
@@ -166,8 +187,11 @@ export interface FileRoutesByTo {
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/partners': typeof PartnersRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/industries/$slug': typeof IndustriesSlugRoute
@@ -189,8 +213,11 @@ export interface FileRoutesById {
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/partners': typeof PartnersRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/industries/$slug': typeof IndustriesSlugRoute
@@ -213,8 +240,11 @@ export interface FileRouteTypes {
     | '/careers'
     | '/case-studies'
     | '/contact'
+    | '/cookies'
     | '/industries'
     | '/partners'
+    | '/privacy'
+    | '/terms'
     | '/blog/$slug'
     | '/case-studies/$slug'
     | '/industries/$slug'
@@ -235,8 +265,11 @@ export interface FileRouteTypes {
     | '/careers'
     | '/case-studies'
     | '/contact'
+    | '/cookies'
     | '/industries'
     | '/partners'
+    | '/privacy'
+    | '/terms'
     | '/blog/$slug'
     | '/case-studies/$slug'
     | '/industries/$slug'
@@ -257,8 +290,11 @@ export interface FileRouteTypes {
     | '/careers'
     | '/case-studies'
     | '/contact'
+    | '/cookies'
     | '/industries'
     | '/partners'
+    | '/privacy'
+    | '/terms'
     | '/blog/$slug'
     | '/case-studies/$slug'
     | '/industries/$slug'
@@ -280,8 +316,11 @@ export interface RootRouteChildren {
   CareersRoute: typeof CareersRoute
   CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
   ContactRoute: typeof ContactRoute
+  CookiesRoute: typeof CookiesRoute
   IndustriesRoute: typeof IndustriesRouteWithChildren
   PartnersRoute: typeof PartnersRoute
+  PrivacyRoute: typeof PrivacyRoute
+  TermsRoute: typeof TermsRoute
   SolutionsSlugRoute: typeof SolutionsSlugRoute
   SolutionsAiPoweredPlatformsRoute: typeof SolutionsAiPoweredPlatformsRoute
   SolutionsEnterpriseWorkflowAutomationRoute: typeof SolutionsEnterpriseWorkflowAutomationRoute
@@ -295,6 +334,20 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/partners': {
       id: '/partners'
       path: '/partners'
@@ -307,6 +360,13 @@ declare module '@tanstack/react-router' {
       path: '/industries'
       fullPath: '/industries'
       preLoaderRoute: typeof IndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -479,8 +539,11 @@ const rootRouteChildren: RootRouteChildren = {
   CareersRoute: CareersRoute,
   CaseStudiesRoute: CaseStudiesRouteWithChildren,
   ContactRoute: ContactRoute,
+  CookiesRoute: CookiesRoute,
   IndustriesRoute: IndustriesRouteWithChildren,
   PartnersRoute: PartnersRoute,
+  PrivacyRoute: PrivacyRoute,
+  TermsRoute: TermsRoute,
   SolutionsSlugRoute: SolutionsSlugRoute,
   SolutionsAiPoweredPlatformsRoute: SolutionsAiPoweredPlatformsRoute,
   SolutionsEnterpriseWorkflowAutomationRoute:
