@@ -21,11 +21,42 @@ const services = [
   { label: "UI/UX Design", to: "/solutions/ui-ux-design" },
 ];
 
+const megaMenuData = {
+  design: {
+    title: "Design & UI",
+    links: [
+      { label: "UI/UX Design", to: "/solutions/ui-ux-design" },
+      { label: "Brand Identity", to: "/solutions/brand-identity" },
+      { label: "Design Systems", to: "/solutions/design-systems" },
+    ],
+  },
+  engineering: {
+    title: "Engineering",
+    links: [
+      { label: "Mobile App Development", to: "/solutions/mobile-app-development" },
+      { label: "Web Platforms & Dashboards", to: "/solutions/web-platforms-dashboards" },
+      { label: "SaaS Product Engineering", to: "/solutions/saas-product-engineering" },
+      { label: "Enterprise Workflow Automation", to: "/solutions/enterprise-workflow-automation" },
+    ],
+  },
+  intelligence: {
+    title: "Intelligence & Fintech",
+    links: [
+      { label: "AI-Powered Platforms", to: "/solutions/ai-powered-platforms" },
+      { label: "Fintech & Payment Systems", to: "/solutions/fintech-payment-systems" },
+      { label: "Cloud Infrastructure", to: "/solutions/cloud-infrastructure" },
+      { label: "API Integrations", to: "/solutions/api-integrations" },
+    ],
+  },
+};
+
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-
+  const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -36,9 +67,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 bg-white dark:bg-gray-900 transition-shadow ${scrolled ? "shadow-lg" : "border-b border-gray-200 dark:border-gray-700"
+      className={`fixed top-0 inset-x-0 z-50 bg-white dark:bg-gray-900 transition-all ${scrolled ? "shadow-lg" : "border-b border-gray-200 dark:border-gray-700"
         }`}
     >
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <img src={logo} alt="FluxtonX" className="h-8 w-auto" />
@@ -47,35 +79,28 @@ export function Navbar() {
         <nav className="hidden lg:flex items-center gap-1">
           {navLinks.map((l) => (
             <div key={l.to} className="relative group">
-              <Link
-                to={l.to as any}
-                className="inline-flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-                activeProps={{ className: "text-primary" }}
-              >
-                {l.label}
-                {l.hasDropdown && (
-                  <ChevronDown className="h-3.5 w-3.5 opacity-60 transition-transform duration-200 group-hover:rotate-180 group-hover:opacity-100" />
-                )}
-              </Link>
-              
-              {l.hasDropdown && (
-                <div className="absolute top-full left-0 pt-1 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
-                  <div className="bg-white shadow-lg rounded-xl border border-gray-100 py-2 min-w-48 overflow-hidden">
-                    {services.map((s) => (
-                      <Link
-                        key={s.to}
-                        to={s.to as any}
-                        className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
-                      >
-                        {s.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
+              {l.hasDropdown ? (
+                <button
+                  onClick={() => setServicesOpen(!servicesOpen)}
+                  className={`inline-flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${servicesOpen ? "text-primary" : "text-foreground/80 hover:text-primary"
+                    }`}
+                >
+                  {l.label}
+                  <ChevronDown className={`h-3.5 w-3.5 opacity-60 transition-transform duration-200 ${servicesOpen ? "rotate-180 opacity-100" : ""}`} />
+                </button>
+              ) : (
+                <Link
+                  to={l.to as any}
+                  className="inline-flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                  activeProps={{ className: "text-primary" }}
+                >
+                  {l.label}
+                </Link>
               )}
             </div>
           ))}
         </nav>
+
 
         <div className="hidden lg:flex items-center gap-3">
           <ThemeToggle />
@@ -155,7 +180,84 @@ export function Navbar() {
           </div>
         </div>
       )}
+
+      {/* Desktop Mega Menu */}
+      <div className="hidden md:block">
+        {servicesOpen && (
+          <>
+            <div
+              className="fixed inset-0 bg-black/20 z-40 transition-opacity duration-300"
+              onClick={() => setServicesOpen(false)}
+            />
+            <div
+              className={`fixed left-0 right-0 top-16 bg-white shadow-2xl border-t border-gray-100 z-50 transition-all duration-300 ${servicesOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
+                }`}
+            >
+              <div className="max-w-7xl mx-auto px-8 py-10">
+                <div className="flex justify-end mb-6">
+                  <Link
+                    to="/contact"
+                    onClick={() => setServicesOpen(false)}
+                    className="text-sm text-gray-500 hover:text-blue-600 transition-colors"
+                  >
+                    Looking to start a project? Get in touch →
+                  </Link>
+                </div>
+
+                <div className="grid grid-cols-3 gap-12">
+                  {Object.entries(megaMenuData).map(([key, section]) => (
+                    <div key={key}>
+                      <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">
+                        {section.title}
+                      </h3>
+                      <div className="space-y-1">
+                        {section.links.map((link) => (
+                          <Link
+                            key={link.to}
+                            to={link.to as any}
+                            onClick={() => setServicesOpen(false)}
+                            className="block py-2 text-gray-600 hover:text-blue-600 text-sm transition-colors duration-150"
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Footer Strip */}
+              <div className="bg-gray-50 border-t border-gray-100 px-8 py-4">
+                <div className="max-w-7xl mx-auto px-8">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                      <img
+                        src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=120&q=80"
+                        alt="Ready to build"
+                        className="w-16 h-16 rounded-xl object-cover shadow-sm"
+                      />
+                      <div>
+                        <h4 className="text-sm font-semibold text-gray-800">Ready to Build?</h4>
+                        <p className="text-xs text-gray-500">Let's turn your idea into reality</p>
+                      </div>
+                    </div>
+                    <Link
+                      to="/contact"
+                      onClick={() => setServicesOpen(false)}
+                      className="text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors"
+                    >
+                      Talk to us →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
     </header>
+
   );
 }
 
