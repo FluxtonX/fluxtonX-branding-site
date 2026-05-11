@@ -37,7 +37,7 @@ function ContactPage() {
               <div>
                 <h2 className="text-2xl font-bold text-foreground">Global Headquarters</h2>
                 <div className="mt-6 space-y-6">
-                  <Info icon={MapPin} title="Islamabad Office" lines={["Serena Business Complex, Level 5", "Khayaban-e-Suhrwardy, G-5/1", "Islamabad 44000, Pakistan"]} />
+                  <Info icon={MapPin} title="Islamabad Office" lines={["Aspire Building, Business Square", "Block C, Gulberg Greens", "Islamabad, Pakistan"]} />
                   <div className="grid sm:grid-cols-2 gap-6">
                     <Info icon={Phone} title="Phone" lines={["+92 51 234 5678", "+92 51 876 5432"]} />
                     <Info icon={Mail} title="Email" lines={["contact@fluxtonx.com", "press@fluxtonx.com"]} />
