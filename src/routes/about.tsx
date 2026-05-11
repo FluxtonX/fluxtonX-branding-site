@@ -45,7 +45,7 @@ const markers = [
   { name: "Islamabad", coordinates: [73.0479, 33.6844] as [number, number] },
   { name: "Dubai", coordinates: [55.2708, 25.2048] as [number, number] },
   { name: "London", coordinates: [-0.1276, 51.5074] as [number, number] },
-  { name: "Singapore", coordinates: [103.8198, 1.3521] as [number, number] },
+  { name: "Saudi Arabia", coordinates: [45.0792, 23.8859] as [number, number] },
 ];
 
 export const Route = createFileRoute("/about")({
