@@ -212,12 +212,15 @@ function AboutPage() {
             <div>
               <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent">Presence</p>
               <h2 className="mt-3 text-3xl font-bold text-foreground">Global Footprint</h2>
+              <p className="mt-3 text-sm text-muted-foreground max-w-md">
+                Our company proudly serves clients across these countries, partnering with leading enterprises in every region we operate.
+              </p>
               <ul className="mt-8 space-y-5">
                 {[
                   ["Islamabad, PK", "Aspire Building, Business Square, Block C, Gulberg Greens"],
                   ["Dubai, UAE", "MENA Strategic Hub"],
                   ["London, UK", "European Financial Markets HQ"],
-                  ["Singapore", "APAC Transformation Center"],
+                  ["Saudi Arabia", "GCC Enterprise Delivery Center"],
                 ].map(([c, d]) => (
                   <li key={c} className="border-l-2 border-accent pl-4">
                     <div className="font-semibold text-primary">{c}</div>
