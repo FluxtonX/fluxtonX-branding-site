@@ -13,6 +13,8 @@ import ubaid from "@/assets/team-ubaid.jpg";
 import nasir from "@/assets/team-nasir.png";
 import rahmat from "@/assets/team-rahmat.png";
 import mudassir from "@/assets/team-mudassir.png";
+import ikram from "@/assets/team-ikram.png";
+
 
 const timeline = [
   { year: "2021", title: "FluxtonX Founding", desc: "Founded in 2021 by Muhammad Nasir, FluxtonX was built with a mission to turn ambitious ideas into real-world technology solutions that create measurable business impact." },
@@ -32,6 +34,7 @@ const team = [
   { name: "Obaid Ullah", role: "Full Stack Web Developer", img: ubaid, linkedin: "https://www.linkedin.com/in/obaid-ullah-b01835266/" },
   { name: "Rahmat U", role: "UI/UX Product Designer", img: rahmat, linkedin: "https://www.linkedin.com/in/rahmat-u-9a63b1243/" },
   { name: "Muhammad Mudassir", role: "Full Stack Developer", img: mudassir, linkedin: "https://www.linkedin.com/in/muhammad-mudassir5/" },
+  { name: "Ikramudin", role: "Mobile Application Developer", img: ikram, linkedin: "https://www.linkedin.com/in/ikramudin/" },
 ];
 
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
