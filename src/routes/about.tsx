@@ -45,7 +45,7 @@ const markers = [
   { name: "Islamabad", coordinates: [73.0479, 33.6844] as [number, number] },
   { name: "Dubai", coordinates: [55.2708, 25.2048] as [number, number] },
   { name: "London", coordinates: [-0.1276, 51.5074] as [number, number] },
-  { name: "Singapore", coordinates: [103.8198, 1.3521] as [number, number] },
+  { name: "Saudi Arabia", coordinates: [45.0792, 23.8859] as [number, number] },
 ];
 
 export const Route = createFileRoute("/about")({
@@ -212,12 +212,15 @@ function AboutPage() {
             <div>
               <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent">Presence</p>
               <h2 className="mt-3 text-3xl font-bold text-foreground">Global Footprint</h2>
+              <p className="mt-3 text-sm text-muted-foreground max-w-md">
+                Our company proudly serves clients across these countries, partnering with leading enterprises in every region we operate.
+              </p>
               <ul className="mt-8 space-y-5">
                 {[
                   ["Islamabad, PK", "Aspire Building, Business Square, Block C, Gulberg Greens"],
                   ["Dubai, UAE", "MENA Strategic Hub"],
                   ["London, UK", "European Financial Markets HQ"],
-                  ["Singapore", "APAC Transformation Center"],
+                  ["Saudi Arabia", "GCC Enterprise Delivery Center"],
                 ].map(([c, d]) => (
                   <li key={c} className="border-l-2 border-accent pl-4">
                     <div className="font-semibold text-primary">{c}</div>

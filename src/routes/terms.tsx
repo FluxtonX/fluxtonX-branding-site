@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowLeft } from "lucide-react";
 
 export const Route = createFileRoute("/terms")({
   head: () => ({
@@ -14,8 +15,11 @@ function TermsPage() {
   return (
     <main className="pt-28 pb-20 bg-background">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <Link to="/" className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-6">
+          <ArrowLeft className="h-4 w-4" /> Back to Home
+        </Link>
         <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent">Legal</p>
-        <h1 className="mt-3 text-4xl sm:text-5xl font-bold text-foreground">Terms of Service</h1>
+        <h1 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">Terms of Service</h1>
         <p className="mt-4 text-sm text-muted-foreground">Last updated: May 2026</p>
 
         <div className="mt-10 space-y-8 text-foreground/90 leading-relaxed">
