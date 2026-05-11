@@ -59,7 +59,7 @@ function BlogPost() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[1fr_320px] gap-12">
             <article className="prose-blog">
               {article.content ? (
-                article.content.map((p, idx) => (
+                article.content.map((p: string, idx: number) => (
                   <div key={idx} className="mb-10">
                     <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-4">Chapter {String(idx + 1).padStart(2, "0")}</p>
                     <p className="text-lg text-foreground/85 leading-relaxed">
