@@ -76,7 +76,7 @@ function CareersPage() {
               <div className="rounded-xl bg-primary text-primary-foreground p-7 shadow-card">
                 <Globe2 className="h-7 w-7 text-accent" />
                 <h3 className="mt-4 text-lg font-bold">Global Reach</h3>
-                <p className="mt-2 text-sm text-white/80 leading-relaxed">With hubs in London, New York, and Singapore, our footprint is as wide as our impact.</p>
+                <p className="mt-2 text-sm text-white/80 leading-relaxed">With hubs in London, Dubai, and Saudi Arabia, our footprint is as wide as our impact.</p>
               </div>
               <div className="rounded-xl bg-card border border-border p-7 shadow-card">
                 <Sparkles className="h-6 w-6 text-accent" />
