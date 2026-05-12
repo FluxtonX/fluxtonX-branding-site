@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { ServiceHero } from "@/components/ServiceHero";
 import { Layers, Database, Shield, Box, Search, Target, Code, ShieldCheck, Rocket, BarChart, Settings, Users } from "lucide-react";
 
 export const Route = createFileRoute("/solutions/saas-product-engineering")({
@@ -19,51 +20,12 @@ function SaaSProductEngineering() {
       <Navbar />
       <main className="pt-16">
         {/* Hero */}
-        <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
-          {/* Background Image */}
-          <img 
-            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80" 
-            alt="SaaS Dashboard" 
-            className="absolute inset-0 w-full h-full object-cover z-0"
-          />
-          {/* Overlay */}
-          <div 
-            className="absolute inset-0 z-1" 
-            style={{ background: "linear-gradient(135deg, rgba(10,15,60,0.85) 0%, rgba(30,58,138,0.75) 50%, rgba(10,15,60,0.90) 100%)" }}
-          />
-          
-          <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <div className="w-24 h-1 bg-[#F5A800] rounded-full mx-auto mb-6" />
-            <p className="text-yellow-400 text-sm font-semibold tracking-widest mb-4 uppercase">Our Services</p>
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight drop-shadow-2xl">
-              SaaS Product Engineering
-            </h1>
-            <p className="mt-6 text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
-              End-to-end SaaS product development from architecture to deployment with scalability built in from day one
-            </p>
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <Link to="/contact" className="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-10 py-4 rounded-full text-lg shadow-2xl hover:shadow-blue-500/50 transition-all duration-300">
-                Get Started
-              </Link>
-              <Link to="/case-studies" className="border-2 border-white/40 text-white hover:bg-white/10 px-10 py-4 rounded-full text-lg transition-all duration-300">
-                View Our Work
-              </Link>
-            </div>
-
-            {/* Stats Pills */}
-            <div className="flex flex-wrap gap-4 sm:gap-6 justify-center mt-12">
-              {[
-                "30+ SaaS Products",
-                "99.9% Uptime",
-                "Scalable Architecture"
-              ].map((stat) => (
-                <div key={stat} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2 text-white text-sm font-medium">
-                  {stat}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <ServiceHero
+          title="SaaS Product Engineering"
+          description="End-to-end SaaS product development from architecture to deployment with scalability built in from day one"
+          image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80"
+          stats={["30+ SaaS Products","99.9% Uptime","Scalable Architecture"]}
+        />
 
         {/* What We Offer */}
         <section className="py-24 bg-white dark:bg-gray-900">
