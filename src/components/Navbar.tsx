@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import logo from "@/assets/fluxtonx-logo.png";
+import solutionTablet from "@/assets/solution-tablet.jpg";
 import { ThemeToggle } from "./ThemeToggle";
 
 const menuSections = {
@@ -61,6 +62,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(true);
   const [expanded, setExpanded] = useState<string | null>(null);
+  const [megaOpen, setMegaOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -87,11 +89,52 @@ export function Navbar() {
         className={`fixed top-0 inset-x-0 z-40 bg-white dark:bg-surface transition-all ${
           scrolled ? "shadow-sm" : "border-b border-gray-100 dark:border-border"
         }`}
+        onMouseLeave={() => setMegaOpen(false)}
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2" onClick={close}>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-6">
+          <Link to="/" className="flex items-center gap-2 shrink-0" onClick={close}>
             <img src={logo} alt="FluxtonX" className="h-9 w-auto" />
           </Link>
+
+          {/* Desktop nav */}
+          <nav className="hidden lg:flex items-center gap-8 mx-auto">
+            <button
+              onMouseEnter={() => setMegaOpen(true)}
+              onClick={() => setMegaOpen((v) => !v)}
+              className={`inline-flex items-center gap-1 text-sm font-medium transition-colors ${
+                megaOpen ? "text-primary" : "text-foreground hover:text-primary"
+              }`}
+            >
+              Services
+              <ChevronDown
+                className={`h-4 w-4 transition-transform ${megaOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+            <Link
+              to="/about"
+              onMouseEnter={() => setMegaOpen(false)}
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              activeProps={{ className: "text-primary" }}
+            >
+              About Us
+            </Link>
+            <Link
+              to="/careers"
+              onMouseEnter={() => setMegaOpen(false)}
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              activeProps={{ className: "text-primary" }}
+            >
+              Careers
+            </Link>
+            <Link
+              to="/blog"
+              onMouseEnter={() => setMegaOpen(false)}
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              activeProps={{ className: "text-primary" }}
+            >
+              Blogs
+            </Link>
+          </nav>
 
           <div className="flex items-center gap-3">
             <ThemeToggle />
@@ -103,7 +146,7 @@ export function Navbar() {
             </Link>
             <button
               onClick={() => setOpen((v) => !v)}
-              className="inline-flex items-center justify-center h-11 w-11 rounded-md border border-gray-200 dark:border-border bg-white dark:bg-surface-2 hover:bg-gray-50 dark:hover:bg-surface-2 transition-colors"
+              className="lg:hidden inline-flex items-center justify-center h-11 w-11 rounded-md border border-gray-200 dark:border-border bg-white dark:bg-surface-2 hover:bg-gray-50 dark:hover:bg-surface-2 transition-colors"
               aria-label="Toggle menu"
               aria-expanded={open}
             >
@@ -111,16 +154,82 @@ export function Navbar() {
             </button>
           </div>
         </div>
+
+        {/* Desktop mega menu */}
+        <div
+          className={`hidden lg:block absolute inset-x-0 top-full bg-white dark:bg-surface border-b border-gray-100 dark:border-border shadow-lg transition-all duration-200 ${
+            megaOpen
+              ? "opacity-100 visible translate-y-0"
+              : "opacity-0 invisible -translate-y-2 pointer-events-none"
+          }`}
+          onMouseEnter={() => setMegaOpen(true)}
+        >
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-12 gap-8">
+            <div className="col-span-9 grid grid-cols-3 gap-8">
+              {Object.entries(menuSections).map(([key, section]) => (
+                <div key={key}>
+                  <h3 className="text-sm font-semibold text-foreground mb-5">
+                    {section.title}
+                  </h3>
+                  <ul className="space-y-3">
+                    {section.links.map((link) => (
+                      <li key={link.label}>
+                        <Link
+                          to={link.to as any}
+                          onClick={() => setMegaOpen(false)}
+                          className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            <div className="col-span-3 bg-gray-50 dark:bg-surface-2 rounded-xl p-5">
+              <img
+                src={solutionTablet}
+                alt="Solutions"
+                className="w-full h-32 object-cover rounded-lg mb-4"
+              />
+              <h4 className="text-base font-semibold text-foreground mb-1">
+                Solution in your hand
+              </h4>
+              <p className="text-sm text-muted-foreground mb-3">
+                Develop IT solutions based on the analysis phase.
+              </p>
+              <Link
+                to="/solutions"
+                onClick={() => setMegaOpen(false)}
+                className="text-sm font-medium text-primary hover:underline"
+              >
+                View more
+              </Link>
+            </div>
+          </div>
+          <div className="border-t border-gray-100 dark:border-border">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-end gap-2 text-sm">
+              <span className="font-semibold text-foreground">Looking to join our Team?</span>
+              <Link
+                to="/careers"
+                onClick={() => setMegaOpen(false)}
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                Look into Open Positions
+              </Link>
+            </div>
+          </div>
+        </div>
       </header>
 
-      {/* Full-screen overlay menu */}
+      {/* Mobile full-screen overlay menu */}
       <div
-        className={`fixed inset-0 z-50 bg-white dark:bg-surface transition-all duration-300 overflow-y-auto ${
+        className={`lg:hidden fixed inset-0 z-50 bg-white dark:bg-surface transition-all duration-300 overflow-y-auto ${
           open ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
         <div className="min-h-full flex flex-col">
-          {/* Top bar inside overlay */}
           <div className="sticky top-0 z-10 bg-white/95 dark:bg-surface/95 backdrop-blur border-b border-gray-100 dark:border-border">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
               <Link to="/" className="flex items-center gap-2" onClick={close}>
@@ -137,7 +246,6 @@ export function Navbar() {
           </div>
 
           <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex-1">
-            {/* Services accordion */}
             <div className="border-b border-gray-200 dark:border-border pb-8">
               <button
                 onClick={() => setServicesOpen((v) => !v)}
@@ -178,7 +286,6 @@ export function Navbar() {
                     ))}
                   </div>
 
-                  {/* Careers CTA strip */}
                   <div className="mt-10 flex items-center justify-end gap-2 text-sm">
                     <span className="font-semibold text-foreground">Looking to join our Team?</span>
                     <Link
@@ -193,7 +300,6 @@ export function Navbar() {
               </div>
             </div>
 
-            {/* Other sections */}
             {otherSections.map((sec) => {
               const isOpen = expanded === sec.key;
               return (
