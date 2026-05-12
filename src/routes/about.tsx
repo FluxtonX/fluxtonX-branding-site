@@ -4,16 +4,18 @@ import { Footer } from "@/components/Footer";
 import { Shield, Lightbulb, Compass, Award, Users, ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback } from "react";
-import aboutImg from "@/assets/about-hero.jpg";
-import t1 from "@/assets/team-1.jpg";
-import t2 from "@/assets/team-2.jpg";
-import t3 from "@/assets/team-3.jpg";
-import t4 from "@/assets/team-4.jpg";
-import ubaid from "@/assets/team-ubaid.jpg";
-import nasir from "@/assets/team-nasir.png";
-import rahmat from "@/assets/team-rahmat.png";
-import mudassir from "@/assets/team-mudassir.png";
-import ikram from "@/assets/team-ikram.png";
+import aboutImg from "@/assets/about-hero.webp";
+import t1 from "@/assets/team-1.webp";
+import t2 from "@/assets/team-2.webp";
+import t3 from "@/assets/team-3.webp";
+import t4 from "@/assets/team-4.webp";
+import ubaid from "@/assets/team-ubaid.webp";
+import nasir from "@/assets/team-nasir.webp";
+import rahmat from "@/assets/team-rahmat.webp";
+import mudassir from "@/assets/team-mudassir.webp";
+import ikram from "@/assets/team-ikram.webp";
+import aziz from "@/assets/team-aziz.webp";
+
 
 
 const timeline = [
@@ -35,6 +37,7 @@ const team = [
   { name: "Rahmat U", role: "UI/UX Product Designer", img: rahmat, linkedin: "https://www.linkedin.com/in/rahmat-u-9a63b1243/" },
   { name: "Muhammad Mudassir", role: "Full Stack Developer", img: mudassir, linkedin: "https://www.linkedin.com/in/muhammad-mudassir5/" },
   { name: "Ikramudin", role: "Mobile Application Developer", img: ikram, linkedin: "https://www.linkedin.com/in/ikramudin/" },
+  { name: "Aziz Ur Rehman", role: "Flutter Developer", img: aziz, linkedin: "https://www.linkedin.com/in/aziz-ur-rehman-a37b22241/" },
 ];
 
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";

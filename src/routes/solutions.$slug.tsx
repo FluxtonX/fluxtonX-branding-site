@@ -3,11 +3,11 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { FAQAccordion } from "@/components/FAQAccordion";
-import heroBg from "@/assets/solution-hero.jpg";
-import devImg from "@/assets/solution-dev.jpg";
-import bankingImg from "@/assets/case-banking.jpg";
-import healthImg from "@/assets/case-health.jpg";
-import manuImg from "@/assets/case-manufacturing.jpg";
+import heroBg from "@/assets/solution-hero.webp";
+import devImg from "@/assets/solution-dev.webp";
+import bankingImg from "@/assets/case-banking.webp";
+import healthImg from "@/assets/case-health.webp";
+import manuImg from "@/assets/case-manufacturing.webp";
 import { Cloud, Shield, Zap, Smartphone, Atom, Cpu, Server, Database, ArrowRight, CheckCircle2 } from "lucide-react";
 
 const SOLUTIONS: Record<string, { name: string; category: string; tagline: string; subhead: string }> = {

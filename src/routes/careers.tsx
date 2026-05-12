@@ -3,9 +3,9 @@ import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Heart, Plane, BadgeDollarSign, GraduationCap, Users, Clock, Globe2, Sparkles, Quote, ArrowRight } from "lucide-react";
-import careersImg from "@/assets/careers-hero.jpg";
-import aboutImg from "@/assets/about-hero.jpg";
-import t4 from "@/assets/team-4.jpg";
+import careersImg from "@/assets/careers-hero.webp";
+import aboutImg from "@/assets/about-hero.webp";
+import t4 from "@/assets/team-4.webp";
 
 const benefits = [
   { icon: Heart, t: "Holistic Wellness", d: "Comprehensive private medical insurance, mental health support, and gym memberships for all employees globally." },

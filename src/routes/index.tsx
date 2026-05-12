@@ -6,12 +6,12 @@ import { Footer } from "@/components/Footer";
 import { services, stats, industries, clients, testimonials, posts } from "@/data/home";
 import { ConsultationCallBtn } from "@/components/ConsultationCallBtn";
 
-import caseImg from "@/assets/case-banking.jpg";
-import whyImg from "@/assets/why-team.jpg";
-import blog1 from "@/assets/blog-1.jpg";
-import blog2 from "@/assets/blog-2.jpg";
-import blog3 from "@/assets/blog-3.jpg";
-import logo from "@/assets/fluxtonx-logo.png";
+import caseImg from "@/assets/case-banking.webp";
+import whyImg from "@/assets/why-team.webp";
+import blog1 from "@/assets/blog-1.webp";
+import blog2 from "@/assets/blog-2.webp";
+import blog3 from "@/assets/blog-3.webp";
+import logo from "@/assets/fluxtonx-logo.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({

@@ -9,7 +9,7 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
-import logoUrl from "../assets/fluxtonx-logo.png?url";
+import logoUrl from "../assets/fluxtonx-logo.webp?url";
 
 function NotFoundComponent() {
   return (

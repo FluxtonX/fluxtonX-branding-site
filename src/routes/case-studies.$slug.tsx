@@ -2,8 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Quote, Share2 } from "lucide-react";
-import buildingImg from "@/assets/industry-finance.jpg";
-import t1 from "@/assets/team-1.jpg";
+import buildingImg from "@/assets/industry-finance.webp";
+import t1 from "@/assets/team-1.webp";
 
 const STUDIES: Record<string, { client: string; industry: string; tag: string; title: string; lead: string }> = {
   "global-bank-cloud": { client: "Zenith Global Capital", industry: "High-Frequency Trading & Wealth Management", tag: "Financial Services", title: "Revolutionizing Global Asset Liquidity through AI-Driven Architectures", lead: "How FluxtonX partnered with Zenith Global Capital to modernize legacy infrastructure and achieve sub-millisecond execution across four continents." },

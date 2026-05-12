@@ -1,8 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
-import logo from "@/assets/fluxtonx-logo.png";
-import solutionTablet from "@/assets/solution-tablet.jpg";
+import logo from "@/assets/fluxtonx-logo.webp";
+import solutionTablet from "@/assets/solution-tablet.webp";
 import { ThemeToggle } from "./ThemeToggle";
 
 const menuSections = {

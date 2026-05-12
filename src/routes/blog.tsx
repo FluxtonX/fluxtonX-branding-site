@@ -4,8 +4,8 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ArrowRight, Search, SlidersHorizontal } from "lucide-react";
 import { articles, tabs } from "@/data/blog";
-import featImg from "@/assets/case-energy.jpg";
-import t1 from "@/assets/team-1.jpg";
+import featImg from "@/assets/case-energy.webp";
+import t1 from "@/assets/team-1.webp";
 
 export const Route = createFileRoute("/blog")({
   head: () => ({

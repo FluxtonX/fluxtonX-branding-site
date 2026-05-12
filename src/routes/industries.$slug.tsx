@@ -3,9 +3,9 @@ import { CheckCircle2 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/Breadcrumb";
-import financeImg from "@/assets/finance-hero.jpg";
-import buildingImg from "@/assets/industry-finance.jpg";
-import tabletImg from "@/assets/solution-tablet.jpg";
+import financeImg from "@/assets/finance-hero.webp";
+import buildingImg from "@/assets/industry-finance.webp";
+import tabletImg from "@/assets/solution-tablet.webp";
 import { Banknote, Shield, BarChart3, Sparkles, Database } from "lucide-react";
 
 const SECTORS: Record<string, {

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { MapPin, Phone, Mail, Clock, ArrowRight, HelpCircle, Headphones, Handshake } from "lucide-react";
-import mapImg from "@/assets/contact-map.jpg";
+import mapImg from "@/assets/contact-map.webp";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

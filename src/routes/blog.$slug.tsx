@@ -3,7 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CheckCircle2, Share2, Link as LinkIcon, ArrowLeft } from "lucide-react";
 import { articles } from "@/data/blog";
-import t1 from "@/assets/team-1.jpg";
+import t1 from "@/assets/team-1.webp";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {

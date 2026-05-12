@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Crown, Star, Award, TrendingUp, Mail, Megaphone } from "lucide-react";
-import partnersImg from "@/assets/partners-hero.jpg";
+import partnersImg from "@/assets/partners-hero.webp";
 
 const tiers = [
   { tag: "Strategic Partners", icon: Crown, items: [

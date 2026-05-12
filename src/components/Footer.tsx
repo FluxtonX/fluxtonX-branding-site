@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Linkedin, Twitter, Github, Youtube } from "lucide-react";
-import logo from "@/assets/fluxtonx-logo.png";
+import logo from "@/assets/fluxtonx-logo.webp";
 
 const cols = [
   { title: "Services", links: ["Cloud Native", "Data Mastery", "Cyber Resilience", "AI Engineering", "Digital Strategy"] },

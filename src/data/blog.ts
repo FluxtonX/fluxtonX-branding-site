@@ -1,10 +1,10 @@
-import b1 from "@/assets/blog-feat.jpg";
-import b2 from "@/assets/blog-chip.jpg";
-import b3 from "@/assets/blog-2.jpg";
-import b4 from "@/assets/blog-1.jpg";
-import b5 from "@/assets/blog-sun.jpg";
-import b6 from "@/assets/blog-3.jpg";
-import caseEnergy from "@/assets/case-energy.jpg";
+import b1 from "@/assets/blog-feat.webp";
+import b2 from "@/assets/blog-chip.webp";
+import b3 from "@/assets/blog-2.webp";
+import b4 from "@/assets/blog-1.webp";
+import b5 from "@/assets/blog-sun.webp";
+import b6 from "@/assets/blog-3.webp";
+import caseEnergy from "@/assets/case-energy.webp";
 
 export const tabs = ["All", "AI", "Mobile", "Web", "Cloud", "Design", "Business"];
 

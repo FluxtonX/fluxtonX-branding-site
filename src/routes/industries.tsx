@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { industries } from "@/data/home";
-import industryHero from "@/assets/industry-finance.jpg";
+import industryHero from "@/assets/industry-finance.webp";
 
 const sectors = [
   { slug: "finance", name: "Finance", desc: "Revolutionizing core banking systems with decentralized security and predictive analytics. We enable institutions to navigate complex regulatory landscapes while maximizing transactional efficiency." },

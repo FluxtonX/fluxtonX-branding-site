@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ArrowRight, ArrowUpDown, Cloud, BrainCircuit, Shield, Database, Smartphone, Sparkles, Globe, ChevronRight } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import heroImg from "@/assets/solutions-hero.jpg";
+import heroImg from "@/assets/solutions-hero.webp";
 
 const filters = ["All Solutions", "Digital Strategy", "Infrastructure", "Intelligence"];
 

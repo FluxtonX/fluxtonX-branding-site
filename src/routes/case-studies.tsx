@@ -3,12 +3,12 @@ import { useState } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import buildingImg from "@/assets/industry-finance.jpg";
-import manuImg from "@/assets/case-manufacturing.jpg";
-import healthImg from "@/assets/case-health.jpg";
-import bankingImg from "@/assets/case-banking.jpg";
-import energyImg from "@/assets/case-energy.jpg";
-import securityImg from "@/assets/case-security.jpg";
+import buildingImg from "@/assets/industry-finance.webp";
+import manuImg from "@/assets/case-manufacturing.webp";
+import healthImg from "@/assets/case-health.webp";
+import bankingImg from "@/assets/case-banking.webp";
+import energyImg from "@/assets/case-energy.webp";
+import securityImg from "@/assets/case-security.webp";
 
 const STUDIES = [
   { slug: "global-bank-cloud", img: buildingImg, industry: "Financial Services", metric: "40% OP-EX Reduction", title: "Global Bank Cloud Migration", desc: "Transitioning legacy infrastructure for a Tier-1 global bank to a hybrid-cloud environment to enhance security and agility.", client: "Nexus Global" },

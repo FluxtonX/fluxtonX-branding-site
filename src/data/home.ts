@@ -36,7 +36,7 @@ export const testimonials = [
 ];
 
 export const posts = [
-  { title: "The Future of Generative AI in Enterprise Workflows", category: "AI & Engineering", img: "/src/assets/blog-1.jpg" },
-  { title: "Multi-Cloud vs Hybrid: Finding the Right Balance", category: "Cloud Engineering", img: "/src/assets/blog-2.jpg" },
-  { title: "Zero Trust: The New Foundation of Digital Security", category: "Cybersecurity", img: "/src/assets/blog-3.jpg" },
+  { title: "The Future of Generative AI in Enterprise Workflows", category: "AI & Engineering", img: "/src/assets/blog-1.webp" },
+  { title: "Multi-Cloud vs Hybrid: Finding the Right Balance", category: "Cloud Engineering", img: "/src/assets/blog-2.webp" },
+  { title: "Zero Trust: The New Foundation of Digital Security", category: "Cybersecurity", img: "/src/assets/blog-3.webp" },
 ];
