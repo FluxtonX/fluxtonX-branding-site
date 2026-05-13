@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ServiceHero } from "@/components/ServiceHero";
+import heroImg from "@/assets/service-uiux.png";
 import { Sparkles, Layout, Smartphone, MousePointer2, Search, Target, Code, ShieldCheck, Rocket, BarChart, Settings, Users } from "lucide-react";
 
 export const Route = createFileRoute("/solutions/ui-ux-design")({
@@ -23,7 +24,7 @@ function UIUXDesign() {
         <ServiceHero
           title="UI/UX Design"
           description="User-centered design that combines beautiful aesthetics with intuitive functionality to delight your users"
-          image="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1600&q=80"
+          image={heroImg}
           stats={["500+ Screens Designed","User-First Approach","Award Winning Design"]}
         />
 

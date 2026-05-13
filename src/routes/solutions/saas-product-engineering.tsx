@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ServiceHero } from "@/components/ServiceHero";
+import heroImg from "@/assets/service-saas.png";
 import { Layers, Database, Shield, Box, Search, Target, Code, ShieldCheck, Rocket, BarChart, Settings, Users } from "lucide-react";
 
 export const Route = createFileRoute("/solutions/saas-product-engineering")({
@@ -23,7 +24,7 @@ function SaaSProductEngineering() {
         <ServiceHero
           title="SaaS Product Engineering"
           description="End-to-end SaaS product development from architecture to deployment with scalability built in from day one"
-          image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80"
+          image={heroImg}
           stats={["30+ SaaS Products","99.9% Uptime","Scalable Architecture"]}
         />
 

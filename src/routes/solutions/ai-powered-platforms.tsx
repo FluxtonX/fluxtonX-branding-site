@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ServiceHero } from "@/components/ServiceHero";
+import heroImg from "@/assets/service-ai-platforms.png";
 import { BrainCircuit, Cpu, LineChart, Zap, Search, Target, Code, ShieldCheck, Rocket, BarChart, Settings, Users } from "lucide-react";
 
 export const Route = createFileRoute("/solutions/ai-powered-platforms")({
@@ -23,7 +24,7 @@ function AIPoweredPlatforms() {
         <ServiceHero
           title="AI-Powered Platforms"
           description="We build intelligent AI systems that automate decisions, predict outcomes, and transform how your business operates"
-          image="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1600&q=80"
+          image={heroImg}
           stats={["50+ AI Projects","98% Accuracy Rate","10x Faster Processing"]}
         />
 
