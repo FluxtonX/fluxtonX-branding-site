@@ -3,7 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Shield, Lightbulb, Compass, Award, Users, ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import aboutImg from "@/assets/about-hero.webp";
 import t1 from "@/assets/team-1.webp";
 import t2 from "@/assets/team-2.webp";
@@ -64,7 +64,7 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     align: "start",
-    dragFree: true,
+    loop: true,
     containScroll: "trimSnaps"
   });
 
@@ -74,6 +74,12 @@ function AboutPage() {
 
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const id = setInterval(() => emblaApi.scrollNext(), 2500);
+    return () => clearInterval(id);
   }, [emblaApi]);
 
   return (
@@ -185,7 +191,7 @@ function AboutPage() {
                 {team.map((m) => (
                   <figure 
                     key={m.name} 
-                    className="embla__slide flex-[0_0_280px] min-w-0 relative rounded-xl overflow-hidden bg-card border border-border shadow-card group"
+                    className="embla__slide flex-[0_0_200px] sm:flex-[0_0_220px] min-w-0 relative rounded-xl overflow-hidden bg-card border border-border shadow-card group"
                   >
                     <img src={m.img} alt={m.name} loading="lazy" className="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-105" />
                     <a
