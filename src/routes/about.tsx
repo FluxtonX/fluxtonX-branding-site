@@ -3,7 +3,8 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Shield, Lightbulb, Compass, Award, Users, ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
-import { useCallback, useEffect } from "react";
+import AutoScroll from "embla-carousel-auto-scroll";
+import { useCallback } from "react";
 import aboutImg from "@/assets/about-hero.webp";
 import t1 from "@/assets/team-1.webp";
 import t2 from "@/assets/team-2.webp";
@@ -62,11 +63,10 @@ export const Route = createFileRoute("/about")({
 });
 
 function AboutPage() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ 
-    align: "start",
-    loop: true,
-    containScroll: "trimSnaps"
-  });
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { align: "start", loop: true, dragFree: true },
+    [AutoScroll({ playOnInit: true, speed: 1, stopOnInteraction: false, stopOnMouseEnter: true })]
+  );
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -74,12 +74,6 @@ function AboutPage() {
 
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    const id = setInterval(() => emblaApi.scrollNext(), 2500);
-    return () => clearInterval(id);
   }, [emblaApi]);
 
   return (
