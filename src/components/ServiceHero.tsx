@@ -122,20 +122,6 @@ export function ServiceHero({
               </div>
             </div>
           </div>
-
-              {/* Floating badge */}
-              <div className="absolute -bottom-5 -left-5 sm:-left-8 hidden sm:block">
-                <div className="rounded-xl bg-white text-[#0b1020] shadow-xl px-4 py-3 border border-black/5">
-                  <p className="text-[10px] font-semibold uppercase tracking-wider text-[#F5A800]">
-                    Trusted Partner
-                  </p>
-                  <p className="text-sm font-semibold mt-0.5">
-                    Enterprise-grade delivery
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
