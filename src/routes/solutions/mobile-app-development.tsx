@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ServiceHero } from "@/components/ServiceHero";
+import heroImg from "@/assets/service-mobile-dev.png";
 import { Smartphone, Layout, Zap, Globe, Search, Target, Code, ShieldCheck, Rocket, BarChart, Settings, Users } from "lucide-react";
 
 export const Route = createFileRoute("/solutions/mobile-app-development")({
@@ -23,7 +24,7 @@ function MobileAppDevelopment() {
         <ServiceHero
           title="Mobile App Development"
           description="Cross-platform mobile applications built with Flutter delivering native performance on iOS and Android"
-          image="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1600&q=80"
+          image={heroImg}
           stats={["100+ Apps Launched","iOS & Android","5M+ Users Served"]}
         />
 

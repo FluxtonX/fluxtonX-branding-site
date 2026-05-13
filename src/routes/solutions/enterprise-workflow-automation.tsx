@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ServiceHero } from "@/components/ServiceHero";
+import heroImg from "@/assets/service-automation.png";
 import { Workflow, Settings, Zap, Repeat, Search, Target, Code, ShieldCheck, Rocket, BarChart, Users } from "lucide-react";
 
 export const Route = createFileRoute("/solutions/enterprise-workflow-automation")({
@@ -23,7 +24,7 @@ function EnterpriseWorkflowAutomation() {
         <ServiceHero
           title="Enterprise Workflow Automation"
           description="Streamline complex business operations by automating repetitive workflows and integrating enterprise systems"
-          image="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=1600&q=80"
+          image={heroImg}
           stats={["80% Time Saved","Zero Manual Errors","Enterprise Ready"]}
         />
 

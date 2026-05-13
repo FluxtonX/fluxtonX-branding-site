@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ServiceHero } from "@/components/ServiceHero";
+import heroImg from "@/assets/service-web-platforms.png";
 import { Globe, Layout, LineChart, Zap, Search, Target, Code, ShieldCheck, Rocket, BarChart, Settings, Users } from "lucide-react";
 
 export const Route = createFileRoute("/solutions/web-platforms-dashboards")({
@@ -23,7 +24,7 @@ function WebPlatformsDashboards() {
         <ServiceHero
           title="Web Platforms & Dashboards"
           description="Scalable web applications and data-rich dashboards built with React and Next.js for maximum performance"
-          image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&q=80"
+          image={heroImg}
           stats={["200+ Dashboards","Real-time Data","Lightning Fast"]}
         />
 

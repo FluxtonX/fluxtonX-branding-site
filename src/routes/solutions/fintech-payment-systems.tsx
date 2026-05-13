@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ServiceHero } from "@/components/ServiceHero";
+import heroImg from "@/assets/service-fintech.png";
 import { CreditCard, ShieldCheck, Zap, Globe, Search, Target, Code, Rocket, BarChart, Settings, Users } from "lucide-react";
 
 export const Route = createFileRoute("/solutions/fintech-payment-systems")({
@@ -23,7 +24,7 @@ function FintechPaymentSystems() {
         <ServiceHero
           title="Fintech & Payment Systems"
           description="Secure, compliant, and high-performance financial technology solutions and payment gateway integrations"
-          image="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1600&q=80"
+          image={heroImg}
           stats={["PCI Compliant","Bank-Grade Security","15+ Integrations"]}
         />
 
