@@ -99,16 +99,29 @@ export function ServiceHero({
           {/* Right: visual */}
           <div className="lg:col-span-5">
             <div className="relative">
-              <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-blue-500/20 via-transparent to-amber-400/15 blur-2xl" />
-              <div className="relative aspect-[4/5] sm:aspect-[5/6] lg:aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+              <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-blue-500/30 via-purple-500/10 to-amber-400/20 blur-3xl" />
+              <div className="relative aspect-square flex items-center justify-center">
                 <img
                   src={image}
                   alt={title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain drop-shadow-2xl"
                   loading="eager"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0b1020]/80 via-[#0b1020]/10 to-transparent" />
               </div>
+
+              {/* Floating badge */}
+              <div className="absolute -bottom-2 -left-2 sm:-left-6 hidden sm:block">
+                <div className="rounded-xl bg-white text-[#0b1020] shadow-xl px-4 py-3 border border-black/5">
+                  <p className="text-[10px] font-semibold uppercase tracking-wider text-[#F5A800]">
+                    Trusted Partner
+                  </p>
+                  <p className="text-sm font-semibold mt-0.5">
+                    Enterprise-grade delivery
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
 
               {/* Floating badge */}
               <div className="absolute -bottom-5 -left-5 sm:-left-8 hidden sm:block">
