@@ -5,13 +5,37 @@ import { ServiceHero } from "@/components/ServiceHero";
 import heroImg from "@/assets/service-automation.png";
 import { Workflow, Settings, Zap, Repeat, Search, Target, Code, ShieldCheck, Rocket, BarChart, Users } from "lucide-react";
 
+import { getSeoMeta, createServiceSchema, createBreadcrumbSchema } from "@/lib/seo";
+
 export const Route = createFileRoute("/solutions/enterprise-workflow-automation")({
-  head: () => ({
-    meta: [
-      { title: "Enterprise Workflow Automation | FluxtonX" },
-      { name: "description", content: "Streamline complex business operations by automating repetitive workflows and integrating enterprise systems" },
-    ],
-  }),
+  head: () =>
+    getSeoMeta({
+      title: "Enterprise Workflow Automation & System Integration | FluxtonX",
+      description:
+        "Streamline complex business operations by automating repetitive workflows, orchestrating business logic, and integrating enterprise software systems.",
+      keywords: [
+        "Enterprise Workflow Automation",
+        "Process Orchestration",
+        "System Integration",
+        "Business Automation Software",
+        "FluxtonX Automation",
+      ],
+      canonicalPath: "/solutions/enterprise-workflow-automation",
+      jsonLd: [
+        createServiceSchema({
+          name: "Enterprise Workflow Automation",
+          serviceType: "Business Process Automation & Software Integration",
+          description:
+            "Automate repetitive workflows, connect legacy software, and optimize operational velocity.",
+          path: "/solutions/enterprise-workflow-automation",
+        }),
+        createBreadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Solutions", url: "/solutions" },
+          { name: "Workflow Automation", url: "/solutions/enterprise-workflow-automation" },
+        ]),
+      ],
+    }),
   component: EnterpriseWorkflowAutomation,
 });
 

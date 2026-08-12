@@ -14,13 +14,42 @@ const STUDIES: Record<string, { client: string; industry: string; tag: string; t
   "national-security": { client: "Gov-Data Defense", industry: "Public Sector", tag: "Public Sector", title: "Zero-Trust Architecture for National Security", lead: "Identity, access, and data protection redesigned for the modern threat landscape." },
 };
 
+import { getSeoMeta, createBreadcrumbSchema } from "@/lib/seo";
+
 export const Route = createFileRoute("/case-studies/$slug")({
   head: ({ params }) => {
     const s = STUDIES[params.slug] ?? STUDIES["global-bank-cloud"];
-    return { meta: [
-      { title: `${s.title} — FluxtonX` },
-      { name: "description", content: s.lead },
-    ]};
+    return getSeoMeta({
+      title: `${s.title} | FluxtonX Case Study`,
+      description: s.lead,
+      keywords: [
+        s.industry,
+        s.tag,
+        s.client,
+        "FluxtonX Case Study",
+        "Enterprise Transformation",
+      ],
+      canonicalPath: `/case-studies/${params.slug}`,
+      ogType: "article",
+      jsonLd: [
+        {
+          "@context": "https://schema.org",
+          "@type": "CreativeWork",
+          headline: s.title,
+          description: s.lead,
+          url: `https://fluxtonx.com/case-studies/${params.slug}`,
+          provider: {
+            "@type": "Organization",
+            name: "FluxtonX",
+          },
+        },
+        createBreadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Case Studies", url: "/case-studies" },
+          { name: s.title, url: `/case-studies/${params.slug}` },
+        ]),
+      ],
+    });
   },
   component: CaseStudyDetail,
 });

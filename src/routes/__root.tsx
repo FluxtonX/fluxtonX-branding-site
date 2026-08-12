@@ -10,6 +10,12 @@ import {
 
 import appCss from "../styles.css?url";
 import logoUrl from "../assets/fluxtonx-logo.webp?url";
+import {
+  createOrganizationSchema,
+  createWebSiteSchema,
+  createLocalBusinessSchema,
+  PRIMARY_KEYWORDS,
+} from "../lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -74,23 +80,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "FluxtonX | Product Engineering & AI Solutions Company" },
-      { name: "description", content: "FluxtonX is a product engineering and AI solutions company helping startups and enterprises build scalable digital products. Specializing in AI platforms, mobile apps, SaaS, Fintech, and web development." },
-      { name: "keywords", content: "FluxtonX, product engineering, AI solutions, mobile app development, SaaS, Fintech, React, Flutter, web development, Islamabad" },
+      { title: "FluxtonX | Enterprise Software Engineering & AI Solutions Company" },
+      { name: "description", content: "FluxtonX is a high-performance product engineering and AI solutions company. We specialize in custom software development, enterprise web & mobile apps, full-stack SaaS engineering, and intelligent cloud systems." },
+      { name: "keywords", content: PRIMARY_KEYWORDS.join(", ") },
       { name: "author", content: "FluxtonX" },
-      { name: "robots", content: "index, follow" },
-      { property: "og:title", content: "FluxtonX | Product Engineering & AI Solutions Company" },
-      { property: "og:description", content: "FluxtonX is a product engineering and AI solutions company helping startups and enterprises build scalable digital products." },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      { name: "google-site-verification", content: "google9de9162b955f95e6" },
+      { name: "geo.region", content: "PK-IS" },
+      { name: "geo.placename", content: "Islamabad" },
+      { name: "geo.position", content: "33.6007;73.1369" },
+      { name: "ICBM", content: "33.6007, 73.1369" },
+      { property: "og:title", content: "FluxtonX | Enterprise Software Engineering & AI Solutions Company" },
+      { property: "og:description", content: "FluxtonX delivers custom software development, full-stack SaaS engineering, mobile app development, and cloud & AI solutions for global enterprises." },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "FluxtonX" },
+      { property: "og:url", content: "https://fluxtonx.com" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "FluxtonX | Product Engineering & AI Solutions Company" },
-      { name: "twitter:description", content: "FluxtonX is a product engineering and AI solutions company helping startups and enterprises build scalable digital products." },
+      { name: "twitter:site", content: "@fluxtonx" },
+      { name: "twitter:title", content: "FluxtonX | Enterprise Software Engineering & AI Solutions Company" },
+      { name: "twitter:description", content: "FluxtonX delivers custom software development, full-stack SaaS engineering, mobile app development, and cloud & AI solutions for global enterprises." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/41807d71-beae-4f92-a736-5b80b85dede3/id-preview-e6a31462--60dc2ceb-24f0-4137-a7dd-d52fb8ca7d53.lovable.app-1778239690490.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/41807d71-beae-4f92-a736-5b80b85dede3/id-preview-e6a31462--60dc2ceb-24f0-4137-a7dd-d52fb8ca7d53.lovable.app-1778239690490.png" },
     ],
     links: [
       { rel: "canonical", href: "https://fluxtonx.com" },
       { rel: "icon", href: logoUrl },
+      { rel: "manifest", href: "/manifest.json" },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
@@ -99,17 +114,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "FluxtonX",
-          "url": "https://fluxtonx.com",
-          "founder": { "@type": "Person", "name": "Muhammad Nasir" },
-          "foundingDate": "2021",
-          "description": "FluxtonX is a product engineering and AI solutions company",
-          "address": { "@type": "PostalAddress", "addressLocality": "Islamabad", "addressCountry": "PK" },
-          "sameAs": ["https://linkedin.com/company/fluxtonx", "https://facebook.com/fluxtonx"]
-        }),
+        children: JSON.stringify(createOrganizationSchema()),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(createLocalBusinessSchema()),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(createWebSiteSchema()),
       },
     ],
   }),

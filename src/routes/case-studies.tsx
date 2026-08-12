@@ -22,13 +22,28 @@ const STUDIES = [
 const INDUSTRIES = ["All Industries", "Financial Services", "Healthcare", "Retail", "Manufacturing", "Energy", "Public Sector"];
 const SERVICES = ["All Services", "Cloud", "AI", "Data", "Cybersecurity"];
 
+import { getSeoMeta, createBreadcrumbSchema } from "@/lib/seo";
+
 export const Route = createFileRoute("/case-studies")({
-  head: () => ({
-    meta: [
-      { title: "Case Studies | FluxtonX" },
-      { name: "description", content: "Explore how FluxtonX has helped startups and enterprises build impactful digital products." },
-    ],
-  }),
+  head: () =>
+    getSeoMeta({
+      title: "Client Case Studies & Engineering Impact | FluxtonX",
+      description:
+        "Explore how FluxtonX has engineered transformative cloud, AI, fintech, and enterprise software solutions for global startups and Fortune 500 leaders.",
+      keywords: [
+        "FluxtonX Case Studies",
+        "Enterprise Software Case Studies",
+        "Cloud Migration Results",
+        "AI Success Stories",
+      ],
+      canonicalPath: "/case-studies",
+      jsonLd: [
+        createBreadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Case Studies", url: "/case-studies" },
+        ]),
+      ],
+    }),
   component: CaseStudiesPage,
 });
 

@@ -44,6 +44,12 @@ const otherSections = [
     cta: { label: "Learn more about us", to: "/about" },
   },
   {
+    key: "team",
+    title: "Engineering Team",
+    description: "Meet our software architects, full-stack developers, and technology leadership.",
+    cta: { label: "Meet the engineering team", to: "/team" },
+  },
+  {
     key: "careers",
     title: "Careers",
     description: "Join a team that's building the future. Explore open positions across engineering, design and security.",
@@ -117,6 +123,14 @@ export function Navbar() {
               activeProps={{ className: "text-primary" }}
             >
               About Us
+            </Link>
+            <Link
+              to="/team"
+              onMouseEnter={() => setMegaOpen(false)}
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              activeProps={{ className: "text-primary" }}
+            >
+              Team
             </Link>
             <Link
               to="/careers"

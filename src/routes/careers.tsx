@@ -25,13 +25,28 @@ const jobs = [
 
 const tabs = ["All Roles", "Engineering", "Design", "Product"];
 
+import { getSeoMeta, createBreadcrumbSchema } from "@/lib/seo";
+
 export const Route = createFileRoute("/careers")({
-  head: () => ({
-    meta: [
-      { title: "Careers | FluxtonX" },
-      { name: "description", content: "Join the FluxtonX team and work on cutting edge AI and product engineering projects." },
-    ],
-  }),
+  head: () =>
+    getSeoMeta({
+      title: "Careers & Engineering Opportunities | FluxtonX",
+      description:
+        "Join FluxtonX and build mission-critical AI platforms, SaaS products, and enterprise mobile apps. Explore open roles across engineering, product, and design.",
+      keywords: [
+        "FluxtonX Careers",
+        "Software Engineering Jobs",
+        "Full-Stack Developer Careers",
+        "Remote Developer Jobs",
+      ],
+      canonicalPath: "/careers",
+      jsonLd: [
+        createBreadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Careers", url: "/careers" },
+        ]),
+      ],
+    }),
   component: CareersPage,
 });
 

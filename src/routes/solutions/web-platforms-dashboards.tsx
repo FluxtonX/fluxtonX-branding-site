@@ -5,13 +5,37 @@ import { ServiceHero } from "@/components/ServiceHero";
 import heroImg from "@/assets/service-web-platforms.png";
 import { Globe, Layout, LineChart, Zap, Search, Target, Code, ShieldCheck, Rocket, BarChart, Settings, Users } from "lucide-react";
 
+import { getSeoMeta, createServiceSchema, createBreadcrumbSchema } from "@/lib/seo";
+
 export const Route = createFileRoute("/solutions/web-platforms-dashboards")({
-  head: () => ({
-    meta: [
-      { title: "Web Platforms & Dashboards | FluxtonX" },
-      { name: "description", content: "Scalable web applications and data-rich dashboards built with React and Next.js for maximum performance" },
-    ],
-  }),
+  head: () =>
+    getSeoMeta({
+      title: "Enterprise Web Platforms & Real-Time Dashboards | FluxtonX",
+      description:
+        "Scalable web applications, real-time analytics dashboards, and responsive web portals built with React, Next.js, and TypeScript for high-traffic enterprise scale.",
+      keywords: [
+        "Web Platforms",
+        "Enterprise Dashboard Development",
+        "React Web Development",
+        "Next.js Development Agency",
+        "FluxtonX Web Engineering",
+      ],
+      canonicalPath: "/solutions/web-platforms-dashboards",
+      jsonLd: [
+        createServiceSchema({
+          name: "Web Platforms & Dashboards",
+          serviceType: "Enterprise Web Application & Dashboard Development",
+          description:
+            "High-traffic web platforms, real-time analytics dashboards, custom client portals, and cloud integrations.",
+          path: "/solutions/web-platforms-dashboards",
+        }),
+        createBreadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Solutions", url: "/solutions" },
+          { name: "Web Platforms", url: "/solutions/web-platforms-dashboards" },
+        ]),
+      ],
+    }),
   component: WebPlatformsDashboards,
 });
 

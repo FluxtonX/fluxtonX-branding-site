@@ -5,13 +5,37 @@ import { ServiceHero } from "@/components/ServiceHero";
 import heroImg from "@/assets/service-saas.png";
 import { Layers, Database, Shield, Box, Search, Target, Code, ShieldCheck, Rocket, BarChart, Settings, Users } from "lucide-react";
 
+import { getSeoMeta, createServiceSchema, createBreadcrumbSchema } from "@/lib/seo";
+
 export const Route = createFileRoute("/solutions/saas-product-engineering")({
-  head: () => ({
-    meta: [
-      { title: "SaaS Product Engineering | FluxtonX" },
-      { name: "description", content: "End-to-end SaaS product development from architecture to deployment with scalability built in from day one" },
-    ],
-  }),
+  head: () =>
+    getSeoMeta({
+      title: "Full-Stack SaaS Product Engineering & Cloud Platforms | FluxtonX",
+      description:
+        "End-to-end SaaS product engineering, multi-tenant architecture, automated subscription billing, and cloud scalability engineered for high-growth startups and enterprises.",
+      keywords: [
+        "SaaS Product Engineering",
+        "Multi-Tenant Architecture",
+        "Cloud SaaS Development",
+        "Full-Stack SaaS Engineering",
+        "FluxtonX SaaS",
+      ],
+      canonicalPath: "/solutions/saas-product-engineering",
+      jsonLd: [
+        createServiceSchema({
+          name: "SaaS Product Engineering",
+          serviceType: "Software as a Service (SaaS) Development",
+          description:
+            "Multi-tenant SaaS architectures, subscription billing engines, enterprise security, and microservices.",
+          path: "/solutions/saas-product-engineering",
+        }),
+        createBreadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Solutions", url: "/solutions" },
+          { name: "SaaS Engineering", url: "/solutions/saas-product-engineering" },
+        ]),
+      ],
+    }),
   component: SaaSProductEngineering,
 });
 

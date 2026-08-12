@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as TeamRouteImport } from './routes/team'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PartnersRouteImport } from './routes/partners'
 import { Route as IndustriesRouteImport } from './routes/industries'
@@ -36,6 +37,11 @@ import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -166,6 +172,7 @@ export interface FileRoutesByFullPath {
   '/industries': typeof IndustriesRouteWithChildren
   '/partners': typeof PartnersRoute
   '/privacy': typeof PrivacyRoute
+  '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
@@ -191,6 +198,7 @@ export interface FileRoutesByTo {
   '/industries': typeof IndustriesRouteWithChildren
   '/partners': typeof PartnersRoute
   '/privacy': typeof PrivacyRoute
+  '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
@@ -217,6 +225,7 @@ export interface FileRoutesById {
   '/industries': typeof IndustriesRouteWithChildren
   '/partners': typeof PartnersRoute
   '/privacy': typeof PrivacyRoute
+  '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
@@ -244,6 +253,7 @@ export interface FileRouteTypes {
     | '/industries'
     | '/partners'
     | '/privacy'
+    | '/team'
     | '/terms'
     | '/blog/$slug'
     | '/case-studies/$slug'
@@ -269,6 +279,7 @@ export interface FileRouteTypes {
     | '/industries'
     | '/partners'
     | '/privacy'
+    | '/team'
     | '/terms'
     | '/blog/$slug'
     | '/case-studies/$slug'
@@ -294,6 +305,7 @@ export interface FileRouteTypes {
     | '/industries'
     | '/partners'
     | '/privacy'
+    | '/team'
     | '/terms'
     | '/blog/$slug'
     | '/case-studies/$slug'
@@ -320,6 +332,7 @@ export interface RootRouteChildren {
   IndustriesRoute: typeof IndustriesRouteWithChildren
   PartnersRoute: typeof PartnersRoute
   PrivacyRoute: typeof PrivacyRoute
+  TeamRoute: typeof TeamRoute
   TermsRoute: typeof TermsRoute
   SolutionsSlugRoute: typeof SolutionsSlugRoute
   SolutionsAiPoweredPlatformsRoute: typeof SolutionsAiPoweredPlatformsRoute
@@ -339,6 +352,13 @@ declare module '@tanstack/react-router' {
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -543,6 +563,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndustriesRoute: IndustriesRouteWithChildren,
   PartnersRoute: PartnersRoute,
   PrivacyRoute: PrivacyRoute,
+  TeamRoute: TeamRoute,
   TermsRoute: TermsRoute,
   SolutionsSlugRoute: SolutionsSlugRoute,
   SolutionsAiPoweredPlatformsRoute: SolutionsAiPoweredPlatformsRoute,

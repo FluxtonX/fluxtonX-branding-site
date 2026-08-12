@@ -7,13 +7,29 @@ import { articles, tabs } from "@/data/blog";
 import featImg from "@/assets/case-energy.webp";
 import t1 from "@/assets/team-1.webp";
 
+import { getSeoMeta, createBreadcrumbSchema } from "@/lib/seo";
+
 export const Route = createFileRoute("/blog")({
-  head: () => ({
-    meta: [
-      { title: "Blog & Resources | FluxtonX" },
-      { name: "description", content: "Read the latest insights on AI, product engineering, mobile development and technology from FluxtonX." },
-    ],
-  }),
+  head: () =>
+    getSeoMeta({
+      title: "Insights, Tech Articles & Engineering Deep-Dives | FluxtonX Blog",
+      description:
+        "Read the latest engineering perspectives on generative AI, enterprise cloud architecture, UI/UX design systems, and software engineering from FluxtonX.",
+      keywords: [
+        "FluxtonX Blog",
+        "AI Engineering Articles",
+        "Enterprise Cloud Architecture",
+        "Design Systems",
+        "Tech Insights Islamabad",
+      ],
+      canonicalPath: "/blog",
+      jsonLd: [
+        createBreadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Blog", url: "/blog" },
+        ]),
+      ],
+    }),
   component: BlogPage,
 });
 

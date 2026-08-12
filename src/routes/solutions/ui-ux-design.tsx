@@ -5,13 +5,37 @@ import { ServiceHero } from "@/components/ServiceHero";
 import heroImg from "@/assets/service-uiux.png";
 import { Sparkles, Layout, Smartphone, MousePointer2, Search, Target, Code, ShieldCheck, Rocket, BarChart, Settings, Users } from "lucide-react";
 
+import { getSeoMeta, createServiceSchema, createBreadcrumbSchema } from "@/lib/seo";
+
 export const Route = createFileRoute("/solutions/ui-ux-design")({
-  head: () => ({
-    meta: [
-      { title: "UI/UX Design | FluxtonX" },
-      { name: "description", content: "User-centered design that combines beautiful aesthetics with intuitive functionality to delight your users" },
-    ],
-  }),
+  head: () =>
+    getSeoMeta({
+      title: "UI/UX Design & Scalable Design Systems | FluxtonX",
+      description:
+        "User-centered UI/UX design, enterprise design systems, interactive prototypes, and digital brand identities that bridge elegance with function.",
+      keywords: [
+        "UI/UX Design",
+        "Enterprise Design Systems",
+        "Product Design Agency",
+        "User Experience Research",
+        "FluxtonX Design",
+      ],
+      canonicalPath: "/solutions/ui-ux-design",
+      jsonLd: [
+        createServiceSchema({
+          name: "UI/UX Design & Scalable Design Systems",
+          serviceType: "Digital Product Design & UX Research",
+          description:
+            "Design system creation, wireframing, high-fidelity UI design, user research, and interactive prototyping.",
+          path: "/solutions/ui-ux-design",
+        }),
+        createBreadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Solutions", url: "/solutions" },
+          { name: "UI/UX Design", url: "/solutions/ui-ux-design" },
+        ]),
+      ],
+    }),
   component: UIUXDesign,
 });
 

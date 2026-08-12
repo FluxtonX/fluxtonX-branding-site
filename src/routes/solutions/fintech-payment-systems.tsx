@@ -5,13 +5,37 @@ import { ServiceHero } from "@/components/ServiceHero";
 import heroImg from "@/assets/service-fintech.png";
 import { CreditCard, ShieldCheck, Zap, Globe, Search, Target, Code, Rocket, BarChart, Settings, Users } from "lucide-react";
 
+import { getSeoMeta, createServiceSchema, createBreadcrumbSchema } from "@/lib/seo";
+
 export const Route = createFileRoute("/solutions/fintech-payment-systems")({
-  head: () => ({
-    meta: [
-      { title: "Fintech & Payment Systems | FluxtonX" },
-      { name: "description", content: "Secure, compliant, and high-performance financial technology solutions and payment gateway integrations" },
-    ],
-  }),
+  head: () =>
+    getSeoMeta({
+      title: "Fintech & Secure Payment Systems Engineering | FluxtonX",
+      description:
+        "Secure, compliant, and high-performance financial technology solutions, custom payment gateway integrations, and ledger architectures.",
+      keywords: [
+        "Fintech Development",
+        "Payment Gateway Integration",
+        "PCI-DSS Compliance",
+        "Digital Banking Software",
+        "FluxtonX Fintech",
+      ],
+      canonicalPath: "/solutions/fintech-payment-systems",
+      jsonLd: [
+        createServiceSchema({
+          name: "Fintech & Payment Systems",
+          serviceType: "Financial Technology & Payment Systems Engineering",
+          description:
+            "Secure transaction processors, payment integrations, fraud detection systems, and financial ledger engines.",
+          path: "/solutions/fintech-payment-systems",
+        }),
+        createBreadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Solutions", url: "/solutions" },
+          { name: "Fintech Systems", url: "/solutions/fintech-payment-systems" },
+        ]),
+      ],
+    }),
   component: FintechPaymentSystems,
 });
 
