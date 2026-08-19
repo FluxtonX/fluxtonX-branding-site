@@ -5,18 +5,47 @@ import { CheckCircle2, Share2, Link as LinkIcon, ArrowLeft } from "lucide-react"
 import { articles } from "@/data/blog";
 import t1 from "@/assets/team-1.webp";
 
+import { getSeoMeta, createArticleSchema, createBreadcrumbSchema } from "@/lib/seo";
+
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
     const article = articles.find((a) => a.slug === params.slug);
     if (!article) throw notFound();
     return { article };
   },
-  head: ({ loaderData }) => ({
-    meta: [
-      { title: `${loaderData?.article?.title || "Blog"} — FluxtonX` },
-      { name: "description", content: loaderData?.article?.desc },
-    ],
-  }),
+  head: ({ loaderData }) => {
+    const article = loaderData?.article;
+    const title = article?.title ? `${article.title} | FluxtonX Blog` : "Blog | FluxtonX";
+    const description = article?.desc || "Read insights and engineering articles from FluxtonX.";
+    const slug = article?.slug || "";
+
+    return getSeoMeta({
+      title,
+      description,
+      keywords: [
+        article?.cat || "Engineering",
+        "FluxtonX Article",
+        article?.author || "FluxtonX",
+      ],
+      canonicalPath: `/blog/${slug}`,
+      ogType: "article",
+      ogImage: article?.img,
+      jsonLd: [
+        createArticleSchema({
+          title: article?.title || "",
+          description,
+          path: `/blog/${slug}`,
+          authorName: article?.author || "FluxtonX",
+          image: article?.img,
+        }),
+        createBreadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Blog", url: "/blog" },
+          { name: article?.title || "Article", url: `/blog/${slug}` },
+        ]),
+      ],
+    });
+  },
   component: BlogPost,
 });
 

@@ -5,13 +5,37 @@ import { ServiceHero } from "@/components/ServiceHero";
 import heroImg from "@/assets/service-mobile-dev.png";
 import { Smartphone, Layout, Zap, Globe, Search, Target, Code, ShieldCheck, Rocket, BarChart, Settings, Users } from "lucide-react";
 
+import { getSeoMeta, createServiceSchema, createBreadcrumbSchema } from "@/lib/seo";
+
 export const Route = createFileRoute("/solutions/mobile-app-development")({
-  head: () => ({
-    meta: [
-      { title: "Mobile App Development | FluxtonX" },
-      { name: "description", content: "Cross-platform mobile applications built with Flutter delivering native performance on iOS and Android" },
-    ],
-  }),
+  head: () =>
+    getSeoMeta({
+      title: "Enterprise Mobile App Development (iOS & Android) | FluxtonX",
+      description:
+        "Cross-platform and native mobile applications built with Flutter, React Native, and native toolkits delivering fluid performance on iOS and Android.",
+      keywords: [
+        "Mobile App Development",
+        "Flutter Development Agency",
+        "iOS App Development",
+        "Android App Development",
+        "Cross-Platform Mobile Apps",
+      ],
+      canonicalPath: "/solutions/mobile-app-development",
+      jsonLd: [
+        createServiceSchema({
+          name: "Mobile Application Development",
+          serviceType: "Mobile Application Development",
+          description:
+            "Cross-platform Flutter apps, native iOS/Android development, reactive state architectures, and offline-first mobile apps.",
+          path: "/solutions/mobile-app-development",
+        }),
+        createBreadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Solutions", url: "/solutions" },
+          { name: "Mobile Development", url: "/solutions/mobile-app-development" },
+        ]),
+      ],
+    }),
   component: MobileAppDevelopment,
 });
 

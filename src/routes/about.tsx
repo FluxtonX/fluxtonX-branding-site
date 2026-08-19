@@ -52,13 +52,39 @@ const markers = [
   { name: "Saudi Arabia", coordinates: [45.0792, 23.8859] as [number, number] },
 ];
 
+import { teamMembers } from "@/data/team";
+import { getSeoMeta, createBreadcrumbSchema, createLocalBusinessSchema } from "@/lib/seo";
+
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About Us | FluxtonX" },
-      { name: "description", content: "Founded in 2021 by Muhammad Nasir, FluxtonX is a product engineering company building scalable tech solutions." },
-    ],
-  }),
+  head: () =>
+    getSeoMeta({
+      title: "About Us | FluxtonX Product Engineering & AI Solutions",
+      description:
+        "Founded in 2021 by Muhammad Nasir, FluxtonX is a global product engineering and AI solutions company. Learn about our mission, vision, and leadership team.",
+      keywords: [
+        "About FluxtonX",
+        "FluxtonX Leadership",
+        "Muhammad Nasir CEO",
+        "Muhammad Mudassir",
+        "Product Engineering Company Islamabad",
+      ],
+      canonicalPath: "/about",
+      jsonLd: [
+        {
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          name: "About FluxtonX",
+          description:
+            "FluxtonX is a product engineering and AI solutions company helping startups and enterprises build scalable digital products.",
+          url: "https://fluxtonx.com/about",
+        },
+        createLocalBusinessSchema(),
+        createBreadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "About Us", url: "/about" },
+        ]),
+      ],
+    }),
   component: AboutPage,
 });
 
@@ -162,21 +188,29 @@ function AboutPage() {
                 <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent">Executive Team</p>
                 <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-foreground">Strategic Leadership</h2>
               </div>
-              <div className="flex gap-2">
-                <button 
-                  onClick={scrollPrev}
-                  className="p-3 rounded-full border border-border bg-card hover:bg-accent hover:text-accent-foreground transition-all shadow-sm"
-                  aria-label="Previous slide"
+              <div className="flex items-center gap-4">
+                <Link
+                  to="/team"
+                  className="hidden sm:inline-flex items-center text-xs font-semibold text-primary hover:underline"
                 >
-                  <ChevronLeft className="h-5 w-5" />
-                </button>
-                <button 
-                  onClick={scrollNext}
-                  className="p-3 rounded-full border border-border bg-card hover:bg-accent hover:text-accent-foreground transition-all shadow-sm"
-                  aria-label="Next slide"
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </button>
+                  Meet Full Engineering Team →
+                </Link>
+                <div className="flex gap-2">
+                  <button 
+                    onClick={scrollPrev}
+                    className="p-3 rounded-full border border-border bg-card hover:bg-accent hover:text-accent-foreground transition-all shadow-sm"
+                    aria-label="Previous slide"
+                  >
+                    <ChevronLeft className="h-5 w-5" />
+                  </button>
+                  <button 
+                    onClick={scrollNext}
+                    className="p-3 rounded-full border border-border bg-card hover:bg-accent hover:text-accent-foreground transition-all shadow-sm"
+                    aria-label="Next slide"
+                  >
+                    <ChevronRight className="h-5 w-5" />
+                  </button>
+                </div>
               </div>
             </div>
 

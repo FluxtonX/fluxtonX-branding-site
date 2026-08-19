@@ -18,13 +18,30 @@ const solutions = [
   { slug: "enterprise-web", icon: Globe, name: "Enterprise Web", desc: "Modern web frameworks designed for massive concurrency and seamless global content delivery.", cat: "Infrastructure" },
 ];
 
+import { getSeoMeta, createBreadcrumbSchema } from "@/lib/seo";
+
 export const Route = createFileRoute("/solutions/")({
-  head: () => ({
-    meta: [
-      { title: "Our Solutions | FluxtonX" },
-      { name: "description", content: "Explore FluxtonX solutions including AI platforms, mobile development, SaaS engineering, Fintech and enterprise automation." },
-    ],
-  }),
+  head: () =>
+    getSeoMeta({
+      title: "Enterprise Solutions & Software Engineering | FluxtonX",
+      description:
+        "Explore FluxtonX solutions including AI-powered platforms, mobile app development, SaaS product engineering, Fintech payment systems, and enterprise workflow automation.",
+      keywords: [
+        "FluxtonX Solutions",
+        "Enterprise Software Solutions",
+        "AI Platform Engineering",
+        "SaaS Product Engineering",
+        "Mobile App Development Agency",
+        "Fintech Systems Islamabad",
+      ],
+      canonicalPath: "/solutions",
+      jsonLd: [
+        createBreadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Solutions", url: "/solutions" },
+        ]),
+      ],
+    }),
   component: SolutionsPage,
 });
 

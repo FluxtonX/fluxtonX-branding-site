@@ -5,13 +5,37 @@ import { ServiceHero } from "@/components/ServiceHero";
 import heroImg from "@/assets/service-ai-platforms.png";
 import { BrainCircuit, Cpu, LineChart, Zap, Search, Target, Code, ShieldCheck, Rocket, BarChart, Settings, Users } from "lucide-react";
 
+import { getSeoMeta, createServiceSchema, createBreadcrumbSchema } from "@/lib/seo";
+
 export const Route = createFileRoute("/solutions/ai-powered-platforms")({
-  head: () => ({
-    meta: [
-      { title: "AI-Powered Platforms | FluxtonX" },
-      { name: "description", content: "We build intelligent AI systems that automate decisions, predict outcomes, and transform how your business operates" },
-    ],
-  }),
+  head: () =>
+    getSeoMeta({
+      title: "AI-Powered Platforms & Intelligent Automation | FluxtonX",
+      description:
+        "We build intelligent AI systems, custom LLM integrations, and machine learning pipelines that automate decisions, predict outcomes, and transform operations.",
+      keywords: [
+        "AI-Powered Platforms",
+        "Machine Learning Engineering",
+        "Generative AI Integration",
+        "Intelligent Automation",
+        "FluxtonX AI Solutions",
+      ],
+      canonicalPath: "/solutions/ai-powered-platforms",
+      jsonLd: [
+        createServiceSchema({
+          name: "AI-Powered Platforms",
+          serviceType: "Artificial Intelligence Software Development",
+          description:
+            "Custom ML models, LLM integrations, predictive analytics, and automated decisioning platforms.",
+          path: "/solutions/ai-powered-platforms",
+        }),
+        createBreadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Solutions", url: "/solutions" },
+          { name: "AI Platforms", url: "/solutions/ai-powered-platforms" },
+        ]),
+      ],
+    }),
   component: AIPoweredPlatforms,
 });
 

@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState, useRef } from "react";
-import { ArrowRight, ChevronLeft, ChevronRight, CheckCircle2, Quote } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { services, stats, industries, clients, testimonials, posts } from "@/data/home";
+import { GoogleReviewsSection } from "@/components/GoogleReviewsSection";
+import { services, stats, industries, clients, posts } from "@/data/home";
 import { ConsultationCallBtn } from "@/components/ConsultationCallBtn";
 
 import caseImg from "@/assets/case-banking.webp";
@@ -13,13 +14,37 @@ import blog2 from "@/assets/blog-2.webp";
 import blog3 from "@/assets/blog-3.webp";
 import logo from "@/assets/fluxtonx-logo.webp";
 
+import {
+  getSeoMeta,
+  createOrganizationSchema,
+  createLocalBusinessSchema,
+  createWebSiteSchema,
+} from "@/lib/seo";
+
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "FluxtonX | Product Engineering & AI Solutions Company" },
-      { name: "description", content: "FluxtonX helps startups and enterprises build scalable digital products with AI, mobile apps, SaaS and web development." },
-    ],
-  }),
+  head: () =>
+    getSeoMeta({
+      title: "FluxtonX | Enterprise Software Engineering & AI Solutions Company",
+      description:
+        "FluxtonX is a premier product engineering and AI solutions company. We specialize in custom software development, enterprise web & mobile apps, full-stack SaaS engineering, and intelligent cloud systems.",
+      keywords: [
+        "FluxtonX",
+        "FluxtonX Software",
+        "FluxtonX Solutions",
+        "Custom Software Development Agency",
+        "Enterprise Web & Mobile App Development",
+        "Full-Stack SaaS Engineering",
+        "Cloud & AI Software Solutions",
+        "Muhammad Mudassir",
+        "Muhammad Nasir",
+      ],
+      canonicalPath: "/",
+      jsonLd: [
+        createOrganizationSchema(),
+        createLocalBusinessSchema(),
+        createWebSiteSchema(),
+      ],
+    }),
   component: Home,
 });
 
@@ -38,7 +63,7 @@ function Home() {
         <CaseStudy />
         <TechStack />
         <WhyUs />
-        <Testimonials />
+        <GoogleReviewsSection />
         <Insights />
         <CTABanner />
       </main>
@@ -451,42 +476,6 @@ function WhyUs() {
             <div className="text-3xl font-bold">5+</div>
             <div className="text-[11px] uppercase tracking-wider text-white/70 mt-1">Years of Excellence</div>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Testimonials() {
-  const [i, setI] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setI((p) => (p + 1) % testimonials.length), 5000);
-    return () => clearInterval(id);
-  }, []);
-  const t = testimonials[i];
-  return (
-    <section className="py-20 lg:py-28 bg-surface">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-        <Quote className="mx-auto h-10 w-10 text-accent" />
-        <blockquote className="mt-6 text-xl sm:text-2xl lg:text-3xl font-medium text-foreground leading-snug">
-          "{t.quote}"
-        </blockquote>
-        <div className="mt-8">
-          <div className="font-semibold text-foreground">{t.name}</div>
-          <div className="text-sm text-muted-foreground">{t.role}</div>
-        </div>
-        <div className="mt-8 flex items-center justify-center gap-4">
-          <button onClick={() => setI((p) => (p - 1 + testimonials.length) % testimonials.length)} className="h-10 w-10 grid place-items-center rounded-full border border-border bg-background hover:border-primary hover:text-primary transition" aria-label="Previous">
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-          <div className="flex gap-2">
-            {testimonials.map((_, idx) => (
-              <button key={idx} onClick={() => setI(idx)} className={`h-1.5 rounded-full transition-all ${idx === i ? "bg-primary w-8" : "bg-border w-3"}`} aria-label={`Go to ${idx + 1}`} />
-            ))}
-          </div>
-          <button onClick={() => setI((p) => (p + 1) % testimonials.length)} className="h-10 w-10 grid place-items-center rounded-full border border-border bg-background hover:border-primary hover:text-primary transition" aria-label="Next">
-            <ChevronRight className="h-5 w-5" />
-          </button>
         </div>
       </div>
     </section>
