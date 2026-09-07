@@ -4,12 +4,9 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  HeadContent,
 } from "@tanstack/react-router";
-
-<<<<<<< HEAD
-=======
-import appCss from "../styles.css?url";
-import logoUrl from "../assets/fluxtonx-logo.webp?url";
+import logoUrl from "../assets/fluxtonx-logo.webp";
 import {
   createOrganizationSchema,
   createWebSiteSchema,
@@ -17,7 +14,6 @@ import {
   PRIMARY_KEYWORDS,
 } from "../lib/seo";
 
->>>>>>> 99384a0bb6003f46667c6572a6e43a8221752d0f
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -76,8 +72,6 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-<<<<<<< HEAD
-=======
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -108,7 +102,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "canonical", href: "https://fluxtonx.com" },
       { rel: "icon", href: logoUrl },
       { rel: "manifest", href: "/manifest.json" },
-      { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" },
@@ -128,8 +121,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
     ],
   }),
-  shellComponent: RootShell,
->>>>>>> 99384a0bb6003f46667c6572a6e43a8221752d0f
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
@@ -140,6 +131,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <HeadContent />
       <Outlet />
     </QueryClientProvider>
   );
