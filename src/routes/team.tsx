@@ -73,7 +73,10 @@ function TeamPage() {
 
   const filteredMembers = teamMembers.filter((m) => {
     if (selectedCategory === "All") return true;
-    return m.category === selectedCategory;
+    if (m.category === selectedCategory) return true;
+    if (selectedCategory === "Mobile" && m.skills.some((s) => s.toLowerCase().includes("flutter") || s.toLowerCase().includes("mobile"))) return true;
+    if (selectedCategory === "Full-Stack" && m.skills.some((s) => s.toLowerCase().includes("react") || s.toLowerCase().includes("next"))) return true;
+    return false;
   });
 
   return (
@@ -151,7 +154,7 @@ function TeamPage() {
                     <img
                       src={nasir.img}
                       alt={nasir.name}
-                      className="h-28 w-28 sm:h-32 sm:w-32 rounded-2xl object-cover border-2 border-primary/30 shadow-md group-hover:scale-105 transition-transform duration-300"
+                      className="h-28 w-28 sm:h-32 sm:w-32 rounded-2xl object-cover object-top border-2 border-primary/30 shadow-md group-hover:scale-105 transition-transform duration-300"
                       loading="lazy"
                     />
                     <div className="absolute -bottom-2 -right-2 bg-accent text-accent-foreground p-1.5 rounded-lg shadow">
@@ -242,11 +245,11 @@ function TeamPage() {
                   id={member.id}
                   className="rounded-2xl border border-border bg-card overflow-hidden shadow-card hover:shadow-xl hover:border-primary/40 transition-all duration-300 flex flex-col group"
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden bg-surface-2">
+                  <div className="relative aspect-square overflow-hidden bg-surface-2">
                     <img
                       src={member.img}
                       alt={member.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className={`w-full h-full object-cover ${member.imgPosition || "object-top"} group-hover:scale-105 transition-transform duration-500`}
                       loading="lazy"
                     />
                     {member.badge && (
@@ -271,22 +274,29 @@ function TeamPage() {
                         <h3 className="text-xl font-bold text-foreground">
                           {member.name}
                         </h3>
-                        <span className="text-[10px] font-semibold uppercase px-2 py-0.5 rounded bg-surface-2 text-muted-foreground">
+                        <span className="text-[10px] font-semibold uppercase px-2 py-0.5 rounded bg-surface-2 text-muted-foreground shrink-0">
                           {member.category}
                         </span>
                       </div>
-                      <p className="text-xs font-semibold text-primary mt-1">
-                        {member.role}
-                      </p>
+                      <div className="flex flex-wrap items-center gap-2 mt-1">
+                        <p className="text-xs font-semibold text-primary">
+                          {member.role}
+                        </p>
+                        {member.venture && (
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
+                            {member.venture.role} @ {member.venture.name}
+                          </span>
+                        )}
+                      </div>
 
-                      <p className="mt-3 text-xs text-muted-foreground leading-relaxed line-clamp-3">
+                      <p className="mt-3 text-xs text-muted-foreground leading-relaxed line-clamp-4">
                         {member.bio}
                       </p>
                     </div>
 
                     <div className="mt-5 pt-4 border-t border-border/60">
                       <div className="flex flex-wrap gap-1.5 mb-4">
-                        {member.skills.slice(0, 3).map((skill) => (
+                        {member.skills.slice(0, 5).map((skill) => (
                           <span
                             key={skill}
                             className="rounded bg-surface-2 text-muted-foreground px-2 py-0.5 text-[10px] font-medium"

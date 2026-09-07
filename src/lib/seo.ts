@@ -100,12 +100,18 @@ export function createOrganizationSchema() {
         "@type": "Person",
         "@id": `${SITE_URL}/team#afnan-fahim`,
         name: "Afnan Fahim",
-        jobTitle: "Full-Stack Web Developer",
+        jobTitle: "Senior Software Engineer",
+        description:
+          "Mobile Product Builder | Mobile Platform Engineer | Started as a Full Stack Mobile Engineer now I build companies with the same code | Co-Founder & CEO @ Wextrum | 10+ Yrs helping startups scale",
         sameAs: [
           "https://www.linkedin.com/in/afnan-fahim/",
           "https://github.com/Afnan-Fahim",
           "https://afnan-portfolio-6076b.web.app/",
         ],
+        founder: {
+          "@type": "Organization",
+          name: "Wextrum",
+        },
       },
       {
         "@type": "Person",

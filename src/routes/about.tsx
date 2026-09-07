@@ -221,7 +221,7 @@ function AboutPage() {
                     key={`${m.name}-${index}`} 
                     className="embla__slide flex-[0_0_200px] sm:flex-[0_0_220px] min-w-0 relative rounded-xl overflow-hidden bg-card border border-border shadow-card group"
                   >
-                    <img src={m.img} alt={m.name} loading="lazy" className="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <img src={m.img} alt={m.name} loading="lazy" className={`w-full aspect-[3/4] object-cover ${m.imgPosition || "object-top"} transition-transform duration-500 group-hover:scale-105`} />
                     <a
                       href={m.linkedin}
                       target="_blank"

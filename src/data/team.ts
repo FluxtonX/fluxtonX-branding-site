@@ -15,6 +15,7 @@ export interface TeamMember {
   isFeatured?: boolean;
   bio: string;
   img: string;
+  imgPosition?: string;
   linkedin: string;
   github?: string;
   website?: string;
@@ -37,6 +38,7 @@ export const teamMembers: TeamMember[] = [
     isFeatured: true,
     bio: "Founder and CEO of FluxtonX. Guiding corporate strategy, technology consulting, and global enterprise partnerships to help startups and enterprises scale mission-critical digital products.",
     img: nasir,
+    imgPosition: "object-top",
     linkedin: "https://www.linkedin.com/in/muhammad-nasir-970926177/",
     skills: ["Executive Strategy", "Digital Transformation", "Product Leadership", "Global Partnerships", "Tech Consulting"],
   },
@@ -50,6 +52,7 @@ export const teamMembers: TeamMember[] = [
     isFeatured: false,
     bio: "Founder of MedVoryx and Lead Full-Stack Software Architect at FluxtonX. Specializes in building high-scale cloud architectures, AI-driven automation platforms, enterprise SaaS ecosystems, and robust full-stack web applications.",
     img: mudassir,
+    imgPosition: "object-top",
     linkedin: "https://www.linkedin.com/in/muhammad-mudassir5/",
     github: "https://github.com/muhammadmudassir",
     website: "https://medvoryx.com",
@@ -69,22 +72,28 @@ export const teamMembers: TeamMember[] = [
     isLeadership: false,
     bio: "Senior Full-Stack Engineer with deep experience in crafting high-concurrency web systems, resilient backend APIs, modern React/Node.js ecosystems, and database architectures.",
     img: ubaid,
+    imgPosition: "object-top",
     linkedin: "https://www.linkedin.com/in/obaid-ullah-b01835266/",
     skills: ["React", "Node.js", "TypeScript", "PostgreSQL", "REST & GraphQL APIs", "Cloud Infrastructure"],
   },
   {
     id: "afnan-fahim",
     name: "Afnan Fahim",
-    role: "Full-Stack Web Developer",
-    badge: "Full-Stack Engineer",
+    role: "Senior Software Engineer",
+    badge: "Senior Software Engineer",
     category: "Full-Stack",
     isLeadership: false,
-    bio: "Full-Stack Developer building modern, scalable web platforms and interactive cloud solutions. Specializes in React, Next.js, TypeScript, Node.js, and performant REST API architectures with clean, maintainable code.",
+    bio: "Mobile Product Builder | Mobile Platform Engineer | Started as a Full Stack Mobile Engineer now I build companies with the same code | 10+ Yrs helping startups scale",
     img: "/afnan.jpeg",
+    imgPosition: "object-[center_10%]",
     linkedin: "https://www.linkedin.com/in/afnan-fahim/",
     github: "https://github.com/Afnan-Fahim",
     website: "https://afnan-portfolio-6076b.web.app/",
-    skills: ["React", "Next.js", "TypeScript", "Node.js", "Full-Stack Architecture", "REST APIs", "Modern Web Platforms"],
+    skills: ["Flutter", "React", "Next.js", "Nest.js", "Mobile Architecture", "TypeScript", "Node.js"],
+    venture: {
+      name: "Wextrum",
+      role: "Co-Founder & CEO",
+    },
   },
   {
     id: "umar-sadiq",
@@ -95,6 +104,7 @@ export const teamMembers: TeamMember[] = [
     isLeadership: false,
     bio: "Flutter Developer with 4+ years of experience building high-performance Android, iOS & Web apps. Expert in Flutter, Dart, Firebase, React, TypeScript, Node.js, MongoDB, REST APIs, AI integrations, and Clean Architecture with modern UI/UX.",
     img: "/umar.jpeg",
+    imgPosition: "object-[center_18%]",
     linkedin: "https://github.com/Umarsadiq112233",
     github: "https://github.com/Umarsadiq112233",
     website: "https://portfolio-fc84f.firebaseapp.com/",
@@ -109,6 +119,7 @@ export const teamMembers: TeamMember[] = [
     isLeadership: false,
     bio: "Lead UI/UX Product Designer combining human-centered research with scalable design systems to create elegant, intuitive digital experiences across web and mobile platforms.",
     img: rahmat,
+    imgPosition: "object-top",
     linkedin: "https://www.linkedin.com/in/rahmat-u-9a63b1243/",
     skills: ["UI/UX Design", "Enterprise Design Systems", "Figma", "User Journey Mapping", "Interactive Prototyping"],
   },
@@ -121,6 +132,7 @@ export const teamMembers: TeamMember[] = [
     isLeadership: false,
     bio: "Lead Mobile Developer specializing in building high-performance, cross-platform applications using Flutter and native integrations with offline-first capabilities.",
     img: ikram,
+    imgPosition: "object-top",
     linkedin: "https://www.linkedin.com/in/ikramudin/",
     skills: ["Flutter", "Cross-Platform Mobile", "iOS & Android", "State Management", "Performance Optimization"],
   },
@@ -133,6 +145,7 @@ export const teamMembers: TeamMember[] = [
     isLeadership: false,
     bio: "Senior Mobile Engineer delivering smooth, responsive mobile experiences, custom animations, clean architecture, and reliable API integrations for global enterprise clients.",
     img: aziz,
+    imgPosition: "object-top",
     linkedin: "https://www.linkedin.com/in/aziz-ur-rehman-a37b22241/",
     skills: ["Flutter", "Dart", "Mobile Architecture", "REST APIs", "Clean Code"],
   },
